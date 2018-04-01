@@ -2,18 +2,44 @@ library(shiny)
 library(leaflet)
 library(shinydashboard)
 
+city = 'Amsterdam'
 
-header <- dashboardHeader(title = "Global Green City Watch",titleWidth = 350)
+
+
+mtcars <- mtcars[1:5,]
+
+header <- dashboardHeader(title = city,titleWidth = 300,disable = TRUE)
 
 sidebar <- dashboardSidebar( actionButton("recalc", "New points"),disable = TRUE)
 
-body <- dashboardBody(   leafletOutput("mymap"),
+body <- dashboardBody(fluidRow(
+  box(  leafletOutput("mymap",height = "500"), background = 'black', width = 12)),
+  
+  fluidRow(
+    box(plotOutput("plot1"),
+    background = 'black', width = 6
+    
+  )),
                          p(),
                          
                          # Also add some custom CSS to make the title background area the same
                          # color as the rest of the header.
                          
                          tags$head(tags$style(HTML('
+
+                                                    .content-wrapper,
+                                                    .right-side {
+                                                      background-color: #000000;
+                                                    }
+                                                    
+                                                    .leafletOutput {
+                                                        background-color:rgba(255,0,0,0.0);
+                                                    }
+
+                                                    body, label, input, button, select { 
+                                                    font-family: "Calibri";
+                                                    background-color: black;
+                                    
                                                    /* logo */
                                                    .skin-blue .main-header .logo {
                                                    background-color: #000000;
@@ -73,14 +99,19 @@ names(r_colors) <- colors()
 
 server <- function(input, output, session) {
   
-  points <- eventReactive(input$recalc, {
-    cbind(rnorm(50) * 2 + 4, rnorm(50) + 52)
-  }, ignoreNULL = FALSE)
+  output$plot1 <- renderPlot(
+    dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,
+             main="Gas Milage for Car Models", 
+             xlab="Miles Per Gallon",color = 'black')
+  )
   
+  points <- eventReactive(input$recalc, {
+    cbind(rnorm(50) * 1 + 4, rnorm(50) + 52)
+  }, ignoreNULL = FALSE)
   output$mymap <- renderLeaflet({
     leaflet() %>%
       addProviderTiles(providers$CartoDB.DarkMatter,
-                       options = providerTileOptions(noWrap = TRUE)
+                       options = providerTileOptions(noWrap = FALSE)
       ) %>%
       addCircleMarkers(data = points(),color = 'green')
   })
