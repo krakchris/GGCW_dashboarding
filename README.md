@@ -11,7 +11,7 @@ https://www.globalgreencitywatch.tk/GGCW/app/
 The live version will be updated soon after changes are suggested. 
 
 
-Cheers, Chris
+
 
 The aim is to end up with something like this:
 
@@ -19,3 +19,7 @@ The aim is to end up with something like this:
 ![alt text][example]
 
 [example]: https://github.com/krakchris/GGCW/blob/master/Voorbeeld_GGCW.png "example dashboard"
+
+
+
+Cheers, Chris and the rest of the GGCW team
