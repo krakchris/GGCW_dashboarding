@@ -6,7 +6,7 @@ Using shiny-server and Rstudio the web application can be run on a digitalocean 
 We use the leaflet package to visualize maps and R plotting tools for the scorecard. 
 
 The current live version can be seen here: 
-http://167.99.223.115/GGCW/app/
+https://www.globalgreencitywatch.tk/GGCW/app/
 
 The live version will be updated soon after changes are suggested. 
 
