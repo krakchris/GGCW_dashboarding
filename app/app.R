@@ -24,7 +24,7 @@ body <- dashboardBody(fluidRow(
                         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
                         ),
                       tags$div(
-                        HTML(sprintf(html, "65% 100%", "4","string", "65% 100%", "65% 100%"))
+                        HTML(sprintf(html, "50% 100%", "4","string", "80% 100%", "65% 100%"))
                       )
                          
                         )
