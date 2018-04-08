@@ -13,73 +13,19 @@ header <- dashboardHeader(title = city,titleWidth = 300,disable = TRUE)
 sidebar <- dashboardSidebar( actionButton("recalc", "New points"),disable = TRUE)
 
 body <- dashboardBody(fluidRow(
-  box(  leafletOutput("mymap",height = "500"), background = 'black', width = 12)),
+                      box(  leafletOutput("mymap",height = "500"), background = 'black', width = 12)),
   
-  fluidRow(
-    box(plotOutput("plot1"),
-    background = 'black', width = 6
-    
-  )),
-                         p(),
-                         
-                         # Also add some custom CSS to make the title background area the same
-                         # color as the rest of the header.
-                         
-                         tags$head(tags$style(HTML('
-
-                                                    .content-wrapper,
-                                                    .right-side {
-                                                      background-color: #000000;
-                                                    }
-                                                    
-                                                    .leafletOutput {
-                                                        background-color:rgba(255,0,0,0.0);
-                                                    }
-
-                                                    body, label, input, button, select { 
-                                                    font-family: "Calibri";
-                                                    background-color: black;
-                                    
-                                                   /* logo */
-                                                   .skin-blue .main-header .logo {
-                                                   background-color: #000000;
-                                                   }
-                                                   
-                                                   /* logo when hovered */
-                                                   .skin-blue .main-header .logo:hover {
-                                                   background-color: #000000;
-                                                   }
-                                                   
-                                                   /* navbar (rest of the header) */
-                                                   .skin-blue .main-header .navbar {
-                                                   background-color: #000000;
-                                                   }        
-                                                   
-                                                   /* main sidebar */
-                                                   .skin-blue .main-sidebar {
-                                                   background-color: #ffffff;
-                                                   }
-                                                   
-                                                   /* active selected tab in the sidebarmenu */
-                                                   .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
-                                                   background-color: #000000;
-                                                   }
-                                                   
-                                                   /* other links in the sidebarmenu */
-                                                   .skin-blue .main-sidebar .sidebar .sidebar-menu a{
-                                                   background-color: #000000;
-                                                   color: #000000;
-                                                   }
-                                                   
-                                                   /* other links in the sidebarmenu when hovered */
-                                                   .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
-                                                   background-color: #000000;
-                                                   }
-                                                   /* toggle button when hovered  */                    
-                                                   .skin-blue .main-header .navbar .sidebar-toggle:hover{
-                                                   background-color: #ffffff;
-                                                   }
-                                                   ')))
+                        fluidRow(
+                          box(plotOutput("plot1"),
+                          background = 'black', width = 6
+                        )),
+                        p(),
+                       
+                        # Also add some custom CSS to make the title background area the same
+                        # color as the rest of the header.
+                       
+                        tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+                        )
                          
                         )
 
