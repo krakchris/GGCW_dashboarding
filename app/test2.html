@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="shared/jquery.js" type="text/javascript"></script>
+  <script src="shared/shiny.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="shared/shiny.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="style_table.css">
+		  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+        {{ headContent() }}
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="application/shiny-singletons"></script>
+<script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.1];shiny[0.12.2];htmlwidgets[0.5];leaflet[0.7.3];leafletfix[1.0.0];leaflet-label[0.2.2];leaflet-binding[1.0.1.9000];bootstrap[3.3.1]</script>
+<script src="shared/json2-min.js"></script>
+<script src="jquery-1.11.1/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<script src="htmlwidgets-0.5/htmlwidgets.js"></script>
+<link href="leaflet-0.7.3/leaflet.css" rel="stylesheet" />
+<script src="leaflet-0.7.3/leaflet.js"></script>
+<link href="leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="leaflet-binding-1.0.1.9000/leaflet.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>
+  
+  
+  
+</head>
+
+<body>
+
+  <h1>HTML UI</h1>
+
+  <h3>Plot of data:</h3>
+  <div>
+  
+        {{ map }}
+      {{ slider }}
+  
+  </div>
+
+
+		<p>
+			<style type="text/css">
+<!--td {border: 4px solid #000000;}br {mso-data-placement:same-cell;}-->			</style>
+		</p>
+		<table border="1" cellpadding="0" cellspacing="1" dir="ltr" style="table-layout:fixed;font-size:10pt;font-family:arial,sans,sans-serif;width:0px;border-collapse:collapse;border:none" xmlns="http://www.w3.org/1999/xhtml">
+			<colgroup>
+				<col width="167" />
+				<col width="80" />
+				<col width="218" />
+				<col width="100" />
+			</colgroup>
+			<tbody>
+				<tr style="height:21px;">
+					<td class = 'soc2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Presence of amenities&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						<a href="#" data-toggle="tooltip" title="Hooray!">Presence of amenities</a></td>
+					<td class = 'soc1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+					<td class = 'soc2' colspan="1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Social&quot;}" rowspan="3" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; font-style: italic; word-wrap: break-word;">
+						<div style="max-height:63px">
+							<img src="../images/001-rec.png" alt="Mountain View" style= 'vertical-align:middle;'> Social</div>
+					</td>
+					<td class = 'soc1' colspan="1" rowspan="3" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						<div style="max-height:63px">
+							&nbsp;</div>
+					</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'soc2'  data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;NDVI range&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						NDVI range</td>
+					<td class = 'soc1'  style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr  style="height:21px;">
+					<td class = 'soc2'  data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Green:paved ratio&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Green:paved ratio</td>
+					<td class = 'soc1'  style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'eco2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Leaf Area Index&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Leaf Area Index</td>
+					<td class = 'eco1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+					<td class = 'eco2' colspan="1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Ecological&quot;}" rowspan="6" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; font-style: italic; word-wrap: break-word;">
+						<div style="max-height:126px">
+							<img src="../images/003-leaf.png" alt="Mountain View" style= 'vertical-align:middle;'> Ecological</div>
+					</td>
+					<td class = 'eco1' colspan="1" rowspan="6" 
+					style='background-size: 50% 100%;' >
+					2.5
+					</td>
+					</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'eco2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Potential cooling&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Potential cooling</td>
+					<td class = 'eco1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'eco2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Width of blue space in a park&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Width of blue space in a park</td>
+					<td class = 'eco1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'eco2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Stormwater capture potential&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Stormwater capture potential</td>
+					<td class = 'eco1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'eco2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Riparian zone composition&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Riparian zone composition</td>
+					<td class = 'eco1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'eco2' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Total % of impervious surfaces&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						Total % of impervious surfaces</td>
+					<td class = 'eco1' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+				<tr style="height:21px;">
+					<td class = 'econ1' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Monetary value (US $) of a park&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; word-wrap: break-word;">
+						<a href="#" data-toggle="tooltip" title="Maco and McPherson (2003) used Davis, California (USA) as a model to assess the monetary benefit of the city's public and private trees. They found that Davis maintained nearly 24,000 public street that provided $1.2 million in net annual environmental and property value, or $50 per tree. This was extrapolated to estimate the economical value of one park.">Monetary value (US $) of a park</a></td>
+					<td class = 'econ2' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+					<td class = 'econ1' data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Economical&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato; font-size: 9pt; font-style: italic; word-wrap: break-word;">
+						<img src="002-coin.png" alt="Mountain View" style= 'vertical-align:middle;'> Economical</td>
+					<td class = 'econ2' style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
+						&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			&nbsp;</p>
+  
+  
+</body>
+
+	<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+
+</html>
+
+
+
+
+
+
