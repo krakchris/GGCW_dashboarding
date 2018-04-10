@@ -1,0 +1,97 @@
+<tr style="height:21px;">
+					<th class = "soc2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Presence of amenities&quot;}" >
+						<a href="#" data-toggle="tooltip" title="Hooray!">Presence of amenities</a></th>
+					<th class = "soc1" >
+						3</th>
+						<th> </th>
+						
+					<th class = "soc2" colspan="1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Social&quot;}" rowspan="2" >
+						
+							<img src="001-rec.png" alt="Mountain View" style= "vertical-align:middle;"> Social score:
+					</th>
+					<th class = "soc1" colspan="1" rowspan="2" 
+					style="background-size: %s; vertical-align:middle;" >
+							%s</div>
+					</th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "soc2"  data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;NDVI range&quot;}" >
+						NDVI range</th>
+					<th class = "soc1"  >
+						%s</th>
+						<th></th>
+				</tr>
+				<tr  style="height:21px;">
+					<th class = "soc2"  data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Green:paved ratio&quot;}" >
+						Green:paved ratio</th>
+					<th class = "soc1"  style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Leaf Area Index&quot;}" >
+						Leaf Area Index</th>
+					<th class = "eco1" style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+						<th></th>
+					<th class = "eco2" colspan="1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Ecological&quot;}" rowspan="2" >
+						<div style="max-height:126px">
+							<img src="003-leaf.png" alt="Mountain View" style= "vertical-align:middle;"> Ecological score:</div>
+					</th>
+					<th class = "eco1" colspan="1" rowspan="2" 
+					style="background-size: %s; vertical-align:middle;" >
+					3.5
+					</th>
+					</th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Potential cooling&quot;}" >
+						Potential cooling</th>
+					<th class = "eco1" style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+						<th></th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Width of blue space in a park&quot;}" >
+						Width of blue space in a park</th>
+					<th class = "eco1" style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Stormwater capture potential&quot;}" >
+						Stormwater capture potential</th>
+					<th class = "eco1" style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+						<th></th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Riparian zone composition&quot;}">
+						Riparian zone composition</th>
+					<th class = "eco1" style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+						<th></th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Total perc. of impervious surfaces&quot;}">
+						Total perc. of impervious surfaces</th>
+					<th class = "eco1" style="overflow:hidden;vertical-align:bottom;">
+						&nbsp;</th>
+						<th></th>
+				</tr>
+				<tr style="height:21px;">
+					<th class = "econ1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Monetary value (US $) of a park&quot;}" >
+						<a href="#" data-toggle="tooltip" title="Maco and McPherson (2003) used Davis, California (USA) as a model to assess the monetary benefit of the city"s public and private trees. They found that Davis maintained nearly 24,000 public street that provided $1.2 million in net annual environmental and property value, or $50 per tree. This was extrapolated to estimate the economical value of one park.">Monetary value (US $) of a park</a></th>
+					
+					<th class = "econ2" style="overflow:hidden;vertical-align:bottom;">
+					
+						&nbsp;</th>
+						<th></th>
+					<th class = "econ1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Economical&quot;}" >
+						<img src="002-coin.png" alt="Mountain View" style= "vertical-align:middle;"> Economical score:</th>
+					<th class = "econ2" colspan="2" rowspan="2" 
+					style="background-size: %s; vertical-align:middle;" >
+						4 </th>
+				</tr>
+			</tbody>
+		</table>
+		
+		</div>	

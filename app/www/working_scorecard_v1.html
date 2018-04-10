@@ -2,118 +2,99 @@
 
 <html>
 	<head>
-		<title></title>
-		  <link rel="stylesheet" type="text/css" href="style_table.css">
+		 
 		    <title>scorecard</title>
+			
+			
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  
+  <link rel="stylesheet" type="text/css" href="style_table.css">  
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 	</head>
-	<body>
+	
+	 
+	<body id="bootstrap-overrides"  style= "font-family: 'Roboto';">
 		<p>
 		<p>
 			<style type="text/css">
-<!--td {border: 4px solid #000000;}br {mso-data-placement:same-cell;}-->			</style>
+		</style>
 		</p>
 		
-		<div class="table-responsive" style="max-width: 800px; !important" >
-		<table class= "table" border="1" cellpadding="0" cellspacing="1" dir="ltr" >
-			<colgroup>
-				<col width="300" />
-				<col width="100" />
-				<col width="300" />
-				<col width="100" />
-			</colgroup>
+		<div class="table-responsive" style="max-width: %s; border: none; !important" >
+		<table class= "table" >
+
 			<tbody>
-				<tr style="height:21px;">
-					<td class = "soc2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Presence of amenities&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						<a href="#" data-toggle="tooltip" title="Hooray!">Presence of amenities</a></td>
-					<td class = "soc1" >
-						3</td>
-					<td class = "soc2" colspan="1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Social&quot;}" rowspan="3" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						<div style="max-height:63px">
-							<img src="001-rec.png" alt="Mountain View" style= "vertical-align:middle;"> Social score:</div>
-					</td>
-					<td class = "soc1" colspan="1" rowspan="3" 
-					style="background-size: %s; vertical-align:middle;" >
-							%s</div>
-					</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "soc2"  data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;NDVI range&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						NDVI range</td>
-					<td class = "soc1"  >
-						%s</td>
-				</tr>
-				<tr  style="height:21px;">
-					<td class = "soc2"  data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Green:paved ratio&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Green:paved ratio</td>
-					<td class = "soc1"  style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Leaf Area Index&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Leaf Area Index</td>
-					<td class = "eco1" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-					<td class = "eco2" colspan="1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Ecological&quot;}" rowspan="6" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						<div style="max-height:126px">
-							<img src="003-leaf.png" alt="Mountain View" style= "vertical-align:middle;"> Ecological score:</div>
-					</td>
-					<td class = "eco1" colspan="1" rowspan="6" 
-					style="background-size: %s; vertical-align:middle;" >
-					3.5
-					</td>
-					</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Potential cooling&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Potential cooling</td>
-					<td class = "eco1" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Width of blue space in a park&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Width of blue space in a park</td>
-					<td class = "eco1" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Stormwater capture potential&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Stormwater capture potential</td>
-					<td class = "eco1" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Riparian zone composition&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Riparian zone composition</td>
-					<td class = "eco1" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "eco2" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Total perc. of impervious surfaces&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						Total perc. of impervious surfaces</td>
-					<td class = "eco1" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-				</tr>
-				<tr style="height:21px;">
-					<td class = "econ1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Monetary value (US $) of a park&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						<a href="#" data-toggle="tooltip" title="Maco and McPherson (2003) used Davis, California (USA) as a model to assess the monetary benefit of the city"s public and private trees. They found that Davis maintained nearly 24,000 public street that provided $1.2 million in net annual environmental and property value, or $50 per tree. This was extrapolated to estimate the economical value of one park.">Monetary value (US $) of a park</a></td>
-					<td class = "econ2" style="overflow:hidden;padding:2px 3px 2px 3px;vertical-align:bottom;">
-						&nbsp;</td>
-					<td class = "econ1" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Economical&quot;}" style="overflow: hidden; padding: 2px 3px; vertical-align: middle; font-family: Lato;  word-wrap: break-word;">
-						<img src="002-coin.png" alt="Mountain View" style= "vertical-align:middle;"> Economical score:</td>
-					<td class = "econ2" colspan="1" rowspan="1" 
-					style="background-size: %s; vertical-align:middle;" >
-						4 </td>
-				</tr>
-			</tbody>
-		</table>
+			
+
+  <tr>
+    <th class = "soc1" >Presence of amenities</th>
+    <th class = "soc2" >3</th>
+    <th class = "empty2" rowspan = "1"></th>
+
+  </tr>
+  <tr>
+    <td  class = "soc1" >NDVI range</td>
+    <td  class = "soc2" >3</td>
+
+  </tr>
+  <tr>
+    <td  class = "soc1" >Green:paved ratio</td>
+    <td class = "soc2" >3</td>
+    <td class = "empty2" rowspan = "1"></td>
+    <td class = "soc1" rowspan="2">Social score:</td>
+    <td class = "soc2" rowspan="2">2</td>
+  </tr>
+  <tr>
+    <td  class = "eco1" >Leaf Area Index</td>
+    <td  class = "eco2" >3</td>
+
+  </tr>
+  <tr>
+    <td  class = "eco1" >Potential cooling</td>
+    <td class = "eco2" >3</td>
+    <td class = "empty2" ></td>
+    <td class = "eco1" rowspan="2">Ecological score:</td>
+    <td class = "eco2" rowspan="2">3</td>
+  </tr>
+  <tr>
+    <td  class = "eco1" >Width of blue space in a park</td>
+    <td class = "eco2" >3</td>
+    <td  class = "empty2" ></td>
+  </tr>
+  <tr>
+    <td class = "eco1" >Stormwater capture potential</td>
+    <td class = "eco2" >3</td>
+    <td class = "empty2" rowspan = "2" ></td>
+    <td class = "econ1" rowspan="2">Economical score:</td>
+    <td class = "econ2" rowspan="2">4</td>
+  </tr>
+  <tr>
+    <td class = "eco1" >Riparian zone composition</td>
+    <td class = "eco2" >3</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class = "eco1" >Total perc. of impervious surfaces</td>
+    <td class = "eco2" >3</td>
+    <td class = "empty2" ></td>
+
+  </tr>
+  <tr>
+    <td class = "econ1">Monetary value (US $) of a park</td>
+    <td class = "econ2" >3</td>
+    <td class = "empty2" ></td>
+
+  </tr>
+</table>
 		
-		</div>	
+				
 			
 	</body>
 	

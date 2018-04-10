@@ -1,89 +1,152 @@
+
+
+
+/* New way of prioritization */
+#bootstrap-overrides { /* 100+1=101 priority score, yay! */
+
+font-family: 'Roboto';
+
+}
+
+
+/* ecological */ 
+
+
 .eco1 {
   width: 25%;  /* only for demo, not really required */
-  background-image: linear-gradient(to right,rgb(135,176,125) 0%, rgb(135,176,125) 100%);  /* your gradient */
+  background-image: linear-gradient(to right, rgb(199,218,194) 0%, rgb(199,218,194) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
-
+  border-collapse: collapse; 
+  border: none;
+   width: 200px;
  
-  font-family: Lato; font-size: 10pt;  color: white; overflow:hidden;padding:2px 3px 2px 3px; vertical-align:bottom; text-align: center;
-}
+  font-size: 10pt;  color: dark; overflow:hidden;  text-align: left; width: 30% ; vertical-align: middle; 
+  }
 
 
 
 .eco2 {
-  width: 25%;  /* only for demo, not really required */
-  background-image: linear-gradient(to right, rgb(199,218,194) 0%, rgb(199,218,194) 100%);  /* your gradient */
+  width: 10%;  /* only for demo, not really required */
+  background-image: linear-gradient(to right,rgb(135,176,125) 0%, rgb(135,176,125) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
    border-collapse: collapse; 
-   
-  font-family: Lato; font-size: 10pt;  color: dark;
+   border: none;
+   font-size: 10pt; color: white; overflow:hidden;  text-align: center; width: 30% ; vertical-align: middle; 
 }
 
 .eco3 {
-  width: 25%;  /* only for demo, not really required */
-  background-image: linear-gradient(to right, rgba(0, 150, 0, 1) 0%, rgba(0, 175, 0, 1) 17%, rgba(0, 190, 0, 1) 33%, rgba(82, 210, 82, 1) 67%, rgba(131, 230, 131, 1) 83%, rgba(180, 221, 180, 1) 100%);  /* your gradient */
+  width: 10%;  /* only for demo, not really required */
+  background-image: linear-gradient(to right,rgb(135,176,125) 0%, rgb(135,176,125) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
+   border-collapse: collapse; 
+   border: none; height: 50px;
+   font-size: 10pt; color: white; overflow:hidden;  text-align: center; width: 30% ; vertical-align: middle;  padding: 15px;
 }
 
+
+/*#### social */ 
 
 
 
 .soc1 {
   width: 25%;  /* only for demo, not really required */
+  background-image: linear-gradient(to right, rgb(188,215,229) 0%, rgb(188,215,229) 100%);  /* your gradient */
+  background-repeat: no-repeat;  /* don't remove */
+  vertical-align: middle; 
+     border-collapse: collapse; 
+   border: none;
+   
+    width: 200px;
+   font-size: 10pt;  color: dark; font-family: 'Roboto';   width: 500px; 
+   }
+
+.soc2 {
+  width: 10%;  /* only for demo, not really required */
   background-image: linear-gradient(to right,rgb(107,172,199) 0%, rgb(107,172,199) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
   
      border-collapse: collapse; 
+	 border: none;
    
-  font-family: Lato; font-size: 10pt;  color: white; overflow:hidden;padding:2px 3px 2px 3px; vertical-align:bottom; text-align: center;
-}
-
-.soc2 {
-  width: 25%;  /* only for demo, not really required */
-  background-image: linear-gradient(to right, rgb(188,215,229) 0%, rgb(188,215,229) 100%);  /* your gradient */
-  background-repeat: no-repeat;  /* don't remove */
-  
-     border-collapse: collapse; 
-   
-  font-family: Lato; font-size: 10pt;  color: dark;
+   font-size: 10pt;  color: white; overflow:hidden;  text-align: center; vertical-align: middle; 
 }
 
 .soc3 {
-  width: 25%;  /* only for demo, not really required */
+  width: 10%;  /* only for demo, not really required */
   background-image: linear-gradient(to right,rgb(107,172,199) 0%, rgb(107,172,199) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
   
-    font-family: Lato; font-size: 10pt;  color: dark;
+     border-collapse: collapse; 
+	 border: none;
+   height: 50px; 
+   font-size: 10pt;  color: white; overflow:hidden;  text-align: center; vertical-align: middle;  padding: 15px;
 }
+
+/* ### economic */ 
 
 
 .econ1 {
   width: 25%;  /* only for demo, not really required */
   background-image: linear-gradient(to right, rgb(234,229,182) 0%, rgb(234,229,182) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
+  border: none;
   
-    font-family: Lato; font-size: 10pt;  color: dark;
+  width: 200px;
+  
+     font-size: 10pt;  color: dark;  vertical-align: middle; 
 }
 
 .econ2 {
-  width: 25%;  /* only for demo, not really required */
+  width: 10%;  /* only for demo, not really required */
   background-image: linear-gradient(to right, rgb(210,203,83) 0%, rgb(210,203,83) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
+  border: none;
   
-    font-family: Lato; font-size: 10pt;  color: white; overflow:hidden;padding:2px 3px 2px 3px; vertical-align:bottom; text-align: center;
+     font-size: 10pt;  color: white; overflow:hidden;  text-align: center; vertical-align: middle; 
 }
 
 .econ3 {
-  width: 25%;  /* only for demo, not really required */
-  background-image: linear-gradient(to right, rgba(0, 150, 0, 1) 0%, rgba(0, 175, 0, 1) 17%, rgba(0, 190, 0, 1) 33%, rgba(82, 210, 82, 1) 67%, rgba(131, 230, 131, 1) 83%, rgba(180, 221, 180, 1) 100%);  /* your gradient */
+  width: 10%;  /* only for demo, not really required */
+  background-image: linear-gradient(to right, rgb(210,203,83) 0%, rgb(210,203,83) 100%);  /* your gradient */
   background-repeat: no-repeat;  /* don't remove */
-  
-    font-family: Lato; font-size: 10pt;  color: dark;
+  border: none;
+  height: 50px;
+     font-size: 10pt;  color: white; overflow:hidden;  text-align: center; vertical-align: middle;  padding: 15px;
 }
 
 
+/* ### other stuff */ 
+
+
+.empty1 {
+  width: 10%;  /* only for demo, not really required */
+  background-image: black;  /* your gradient */
+  background-repeat: no-repeat;  /* don't remove */
+  border: none;
+  
+}
+
+
+.empty2 {
+	 width: 10%;  /* only for demo, not really required */
+    color: #fff;
+
+}
+
+table, td, th {    
+    border: 0px ;
+    text-align: left;
+}
+
+
+th, td {
+   
+    text-align: left;
+}
 
 html {
   background-color: #000000; 
 }
 
-body { background: #181818 !important; }
+body { background: #000000; vertical-align: middle;  }
+

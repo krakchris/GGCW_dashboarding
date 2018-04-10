@@ -1,15 +1,44 @@
 library(shiny)
 library(leaflet)
 library(shinydashboard)
+library(htmltools)
 
 city = "Amsterdam"
 
 
-fileName <- 'www/working_scorecard_v1.html'
+library(feather)
+
+df <- read_feather("../data/Amsterdam_score.feather")
+
+df$mean_score  <- rowMeans(df[,c(6,7,8,10,11,12,13,14)])
+
+cut_values <- seq(min(df$mean_score)+0.1, max(df$mean_score)-0.1, length.out=5)
+
+
+df$name <- as.factor(df$name)
+
+getColor <- function(input) {
+  sapply(input, function(input) {
+    if(input < cut_values[1]) {
+      "#E50006"
+    } else if(input <= cut_values[2]) {
+      "#AB2F08"
+    } else if(input <= cut_values[3]) {
+      "#725F0A"
+    } else if(input <= cut_values[4]) {
+      "#398F0C"
+    } else {
+      "#00BF0F"
+    } })
+}
+
+
+fileName <- 'www/index_v2.html'
 html <- readChar(fileName, file.info(fileName)$size)
 
 
-mtcars <- mtcars[1:5,]
+digit <- 'hallomensen'
+
 
 header <- dashboardHeader(title = city,titleWidth = 300,disable = TRUE)
 
@@ -20,7 +49,7 @@ body <- dashboardBody(
   fluidRow(selectInput("City", "City:",
                        c("Amsterdam" = "cyl",
                          "Houston" = "am",
-                         "Rio" = "gear"))),
+                         "Rio de Janeiro" = "gear"))),
   
   
   fluidRow(
@@ -34,7 +63,7 @@ body <- dashboardBody(
                         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
                         ),
                       tags$div(
-                        HTML(sprintf(html, "50% 100%", "4","string", "80% 100%", "65% 100%"))
+                        HTML(sprintf(html , "100%", "50% 100%"))
                       )
                       
 
@@ -58,15 +87,21 @@ names(r_colors) <- colors()
 server <- function(input, output, session) {
   
   points <- eventReactive(input$recalc, {
-    cbind(rnorm(50) * 1 + 4, rnorm(50) + 52)
+    cbind(df$X_wgs,df$Y_wgs)
   }, ignoreNULL = FALSE)
   output$mymap <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
       addProviderTiles(providers$CartoDB.DarkMatter,
                        options = providerTileOptions(noWrap = FALSE)
       ) %>%
-      addCircleMarkers(data = points(),color = "green")
+      addCircleMarkers(data = points(),color = getColor(df$mean_score),
+                       stroke = FALSE, fillOpacity = 1, label = htmlEscape(df$name)) 
   })
 }
 
 shinyApp(ui, server)
+
+
+
+
+
