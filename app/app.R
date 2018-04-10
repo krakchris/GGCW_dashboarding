@@ -2,16 +2,17 @@ library(shiny)
 library(leaflet)
 library(shinydashboard)
 library(htmltools)
-
-city = "Amsterdam"
-
-
 library(feather)
 
-df <- read_feather("../data/Amsterdam_score.feather")
+# read datafile
+df <- read_feather("/srv/shiny-server/GGCW/data/Amsterdam_score.feather")
 
+
+# calculat mean scoring over all values
 df$mean_score  <- rowMeans(df[,c(6,7,8,10,11,12,13,14)])
 
+
+# create secuence based on spread of scoring values
 cut_values <- seq(min(df$mean_score)+0.1, max(df$mean_score)-0.1, length.out=5)
 
 
@@ -86,9 +87,14 @@ names(r_colors) <- colors()
 
 server <- function(input, output, session) {
   
+  
+ 
+  
   points <- eventReactive(input$recalc, {
     cbind(df$X_wgs,df$Y_wgs)
   }, ignoreNULL = FALSE)
+  
+  
   output$mymap <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
       addProviderTiles(providers$CartoDB.DarkMatter,
@@ -97,10 +103,16 @@ server <- function(input, output, session) {
       addCircleMarkers(data = points(),color = getColor(df$mean_score),
                        stroke = FALSE, fillOpacity = 1, label = htmlEscape(df$name)) 
   })
+  
+ 
+  
+  
+  
 }
 
-shinyApp(ui, server)
 
+
+shinyApp(ui, server)
 
 
 
