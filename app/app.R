@@ -82,23 +82,8 @@ mean_econ<- getScore_econ(df$Monetary)
 
  ui <- shinyUI(bootstrapPage(theme = "bootstrap.css",
    
-   
-                             plot.new() ,
-   
-   fluidRow( 
 
-     
-     box(selectInput("City", "city",
-                        c("Amsterdam" = "Amsterdam",
-                          "Houston" = "Houston",
-                          "Rio de Janeiro" = "Rio de Janeiro",
-                          "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px", style='padding:10px; font-size: 150%; background = "black"; font-family: "Roboto";',
  
-                  tags$style(type='text/css', "#button { vertical-align: middle; height: 50px; width: 100%; font-size: 40px;}")
-     )
-     
-     
-  ) ,
    
    
    tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
