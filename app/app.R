@@ -4,8 +4,11 @@ library(shinydashboard)
 library(htmltools)
 library(feather)
 
+
+city = 'amsterdam'
+
 # read datafile
-df <- read_feather("/srv/shiny-server/GGCW/data/Amsterdam_score.feather")
+df <- read_feather("data/Amsterdam_score.feather")
 
 
 # calculat mean scoring over all values
@@ -51,7 +54,7 @@ body <- dashboardBody(
   fluidRow(selectInput("City", "City:",
                        c("Amsterdam" = "ams",
                          "Houston" = "hou",
-                         "Rio de Janeiro" = "rio"))),
+                         "Rio de Janeiro" = "rio"))))
   
   
 
