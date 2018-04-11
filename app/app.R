@@ -1,5 +1,9 @@
 library(shiny)
 library(leaflet)
+library(htmltools)
+library(feather)
+
+
 
 r_colors <- rgb(t(col2rgb(colors()) / 255))
 names(r_colors) <- colors()
