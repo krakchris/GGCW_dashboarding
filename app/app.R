@@ -102,7 +102,7 @@ ui <- bootstrapPage(
                     
                     tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
                     
-                    h1("Use sliders to change importance of different score groups", 
+                    h1("What aspect of urban green space is most important to your city?", 
                        style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
                     
                     
