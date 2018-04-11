@@ -133,17 +133,17 @@ mean_econ<- getScore_econ(df$Monetary)
   
   
 
-    column(align="center", width = 4, 
+    column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
   sliderInput("Social", "Social:",
               min = 0, max = 100,
               value = 40))  ,
   
-  column( align="center",width = 4, 
+  column( align="center",width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px; ",
          sliderInput("Ecology", "Ecology:",
                      min = 0, max = 100,
                      value = 30)) ,
   
-  column( align="center",width = 4, 
+  column( width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",align="center",
          sliderInput("Economy", "Economy:",
                      min = 0, max = 100,
                      value = 30)) 

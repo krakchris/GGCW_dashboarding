@@ -150,3 +150,29 @@ html {
 
 body { background: #000000; vertical-align: middle;  }
 
+.js-irs-0 .irs-bar {
+border-top-color: #d01010;
+border-bottom-color: #d01010;
+} 
+
+.js-irs-0 .irs-bar-edge {
+border-color: #d01010;
+}
+
+.js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {
+background: #a00;
+}
+
+.js-irs-1 .irs-bar {
+border-top-color: #10d010;
+border-bottom-color: #10d010;
+} 
+
+.js-irs-1 .irs-bar-edge {
+border-color: #10d010;
+}
+
+.js-irs-1 .irs-single, .js-irs-1 .irs-bar-edge, .js-irs-1 .irs-bar {
+background: #0a0;
+}
+
