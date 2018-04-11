@@ -48,6 +48,7 @@ header <- dashboardHeader(title = city,titleWidth = 300,disable = TRUE)
 
 sidebar <- dashboardSidebar( actionButton("recalc", "New points"),disable = TRUE)
 
+<<<<<<< HEAD
 body <- dashboardBody(
   
   fluidRow(selectInput("City", "City:",
@@ -57,20 +58,19 @@ body <- dashboardBody(
   
   
   fluidRow(
+=======
+body <- dashboardBody(fluidRow(
+>>>>>>> parent of 00967bd... Add dropdown, remove zoomcontrol
                       box(  leafletOutput("mymap",height = "500"), background = "black", width = 12)),
   
                         # Also add some custom CSS to make the title background area the same
                         # color as the rest of the header.
-                      
-
                        
                         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
                         ),
                       tags$div(
                         HTML(sprintf(html , "100%", "50% 100%"))
                       )
-                      
-
                          
                         )
 
@@ -99,7 +99,7 @@ server <- function(input, output, session) {
   
   
   output$mymap <- renderLeaflet({
-    leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
+    leaflet() %>%
       addProviderTiles(providers$CartoDB.DarkMatter,
                        options = providerTileOptions(noWrap = FALSE)
       ) %>%
