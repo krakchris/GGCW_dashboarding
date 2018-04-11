@@ -80,33 +80,29 @@ mean_econ<- getScore_econ(df$Monetary)
 
 ui <- bootstrapPage(theme = "bootstrap.css",
                     
-                    fluidRow( 
-                      
-                      
-                      box(selectInput("City", "city",
-                                      c("Amsterdam" = "Amsterdam",
-                                        "Houston" = "Houston",
-                                        "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px"
-                          )
-                    ) 
-                      
+                    box(  leafletOutput("map",height = "500"), background = "black", width = 12),
+                    
+                    
+                    
+                    # Also add some custom CSS to make the title background area the same
+                    # color as the rest of the header.
+                    
+                    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+                    )
                       
                     )
 
 server <- function(input, output, session) {
   
-  points <- eventReactive(input$recalc, {
-    cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
-  }, ignoreNULL = FALSE)
   
-  output$mymap <- renderLeaflet({
-    leaflet() %>%
-      addProviderTiles(providers$Stamen.TonerLite,
-                       options = providerTileOptions(noWrap = TRUE)
-      ) %>%
-      addMarkers(data = points())
-  })
-}
+  output$map <- renderLeaflet({
+    leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
+      
+      addProviderTiles(providers$CartoDB.DarkMatter,
+                       options = providerTileOptions(noWrap = FALSE))
+    
+  
+  
+})}
 
 shinyApp(ui, server)
