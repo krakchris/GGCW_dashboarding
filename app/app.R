@@ -81,16 +81,13 @@ mean_econ<- getScore_econ(df$Monetary)
 ui <- bootstrapPage(
                     
                     
-                    fluidRow( 
-                      
-                      
-                      box(selectInput("City", "city",
+                    selectInput("City", "city",
                                       c("Amsterdam" = "Amsterdam",
                                         "Houston" = "Houston",
                                         "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px", 
-                          style='padding:10px; font-size: 150%; background = "black"; font-family: "Roboto";')
-                    ),
+                                        "Tokyo" = "Tokyo")), 
+                          
+                    
                     
                     
                      leafletOutput("map",height = "500"), background = "black", width = 12,
