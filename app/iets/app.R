@@ -117,8 +117,8 @@ ui <- bootstrapPage(theme = "bootstrap.css",
                             
                             
                             
-                            column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
-                                   sliderInput("Social", "Social:",
+                          column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
+                                     sliderInput("Social", "Social:",
                                                min = 0, max = 100,
                                                value = 40))  ,
                             

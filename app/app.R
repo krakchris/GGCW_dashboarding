@@ -90,17 +90,49 @@ ui <- bootstrapPage(
                     
                     
                     
-                     leafletOutput("map",height = "500"), background = "black", width = 12,
+                     leafletOutput("map",height = "500"), 
+                    
                     
                     
                     
                     # Also add some custom CSS to make the title background area the same
                     # color as the rest of the header.
                     
-                    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
-                    )                    )
+                    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
+                    
+                    
+                    
+                    column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
+                           sliderInput("Social", "Social:",
+                                       min = 0, max = 100,
+                                       value = 40))  ,
+                    
+                    column( align="center",width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px; ",
+                            sliderInput("Ecology", "Ecology:",
+                                        min = 0, max = 100,
+                                        value = 30)) ,
+                    
+                    column( width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",align="center",
+                            sliderInput("Economy", "Economy:",
+                                        min = 0, max = 100,
+                                        value = 30)) 
+                    
+                    
+                    
+                    
+                    
+                    
+                    )
 
 server <- function(input, output, session) {
+  
+  
+  
+  acm_defaults <- function(map, x, y) 
+    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
+                     fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
+  
+  
   
   points <- eventReactive(input$recalc, {
     cbind(df$X_wgs,df$Y_wgs)
@@ -122,6 +154,70 @@ server <- function(input, output, session) {
         
       ), group="locations", layerId = df$OSM_id , stroke = FALSE, fillOpacity = 1, label = htmlEscape(df$name)) 
   })
+  
+  
+  
+  # distribute importance over 3 categories###
+  observeEvent(input$Ecology,  {
+    
+    
+    eco_val <- input$Ecology
+    
+    econ_val <- input$Economy
+    
+    soc_val <- input$Social
+    
+    current_rest = soc_val+econ_val
+    
+    change <- (((current_rest + eco_val)-100)*-1)/2
+    
+    updateSliderInput(session = session, inputId = "Social", value = soc_val+change)
+    
+    updateSliderInput(session = session, inputId = "Economy", value = econ_val+change)
+  })
+  
+  observeEvent(input$Social,  {
+    
+    
+    eco_val <- input$Ecology
+    
+    econ_val <- input$Economy
+    
+    soc_val <- input$Social
+    
+    
+    current_rest = soc_val+econ_val
+    
+    change <- (((current_rest + eco_val)-100)*-1)/2
+    
+    updateSliderInput(session = session, inputId = "Ecology", value = eco_val+change)
+    
+    updateSliderInput(session = session, inputId = "Economy", value = econ_val+change)
+  })
+  
+  observeEvent(input$Economy,  {
+    
+    
+    eco_val <- input$Ecology
+    
+    econ_val <- input$Economy
+    
+    soc_val <- input$Social
+    
+    
+    current_rest = soc_val+econ_val
+    
+    change <- (((current_rest + eco_val)-100)*-1)/2
+    
+    updateSliderInput(session = session, inputId = "Social", value = soc_val+change)
+    
+    updateSliderInput(session = session, inputId = "Ecology", value = eco_val+change)
+    
+  })
+  
+  ############################################
+  
+  
   
 }
 
