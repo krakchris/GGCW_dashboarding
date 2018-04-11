@@ -76,7 +76,7 @@ mean_econ<- getScore_econ(df$Monetary)
 
 
 
-ui <- shinyUI(bootstrapPage(theme = "bootstrap.css",
+ui <- bootstrapPage(theme = "bootstrap.css",
                             
                             fluidRow( 
                               
@@ -148,8 +148,8 @@ ui <- shinyUI(bootstrapPage(theme = "bootstrap.css",
                               column(2 ,offset = 5, align="center", tableOutput('table1')
                               )          
                               
-                              
-                            )))
+                            
+                            ))
 
 
 
