@@ -87,8 +87,8 @@ ui <- bootstrapPage(theme = "bootstrap.css",
                                       c("Amsterdam" = "Amsterdam",
                                         "Houston" = "Houston",
                                         "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px", 
-                          style='padding:10px; font-size: 150%; background = "black"; font-family: "Roboto";')
+                                        "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px"
+                          )
                     ) 
                       
                       
