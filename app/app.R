@@ -81,11 +81,11 @@ mean_econ<- getScore_econ(df$Monetary)
 ui <- bootstrapPage(
                     
                     
-                    selectInput("City", "city",
+                    box(selectInput("City", "city",
                                       c("Amsterdam" = "Amsterdam",
                                         "Houston" = "Houston",
                                         "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo")), 
+                                        "Tokyo" = "Tokyo")), align="center", width = "100%"),
                           
                     
                     
