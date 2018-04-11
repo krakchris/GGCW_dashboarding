@@ -48,19 +48,19 @@ header <- dashboardHeader(title = city,titleWidth = 300,disable = TRUE)
 
 sidebar <- dashboardSidebar( actionButton("recalc", "New points"),disable = TRUE)
 
-<<<<<<< HEAD
+
 body <- dashboardBody(
   
   fluidRow(selectInput("City", "City:",
-                       c("Amsterdam" = "cyl",
-                         "Houston" = "am",
-                         "Rio de Janeiro" = "gear"))),
+                       c("Amsterdam" = "ams",
+                         "Houston" = "hou",
+                         "Rio de Janeiro" = "rio"))),
   
   
-  fluidRow(
-=======
+
+
 body <- dashboardBody(fluidRow(
->>>>>>> parent of 00967bd... Add dropdown, remove zoomcontrol
+
                       box(  leafletOutput("mymap",height = "500"), background = "black", width = 12)),
   
                         # Also add some custom CSS to make the title background area the same
@@ -77,15 +77,11 @@ body <- dashboardBody(fluidRow(
 dashboardPage(header, sidebar, body)
 
 
-ui <- dashboardPage( header,sidebar,body
-                     
-)
+ui <- dashboardPage( header,sidebar,body)
 
 
 
 
-r_colors <- rgb(t(col2rgb(colors()) / 255))
-names(r_colors) <- colors()
 
 
 server <- function(input, output, session) {
