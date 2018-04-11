@@ -61,16 +61,94 @@ getScore_econ <- function(input) {
 
 #########################################
 
+city = 'amsterdam'
 
 
-r_colors <- rgb(t(col2rgb(colors()) / 255))
-names(r_colors) <- colors()
 
-ui <- fluidPage(
-  leafletOutput("mymap"),
-  p(),
-  actionButton("recalc", "New points")
-)
+mean_soc <- rowMeans(df[,c(10,11)])
+
+mean_eco <- rowMeans(df[,c(6,7,8,12,13,14)])
+
+mean_econ<- getScore_econ(df$Monetary)
+
+
+
+
+
+ui <- shinyUI(bootstrapPage(theme = "bootstrap.css",
+                            
+                            fluidRow( 
+                              
+                              
+                              box(selectInput("City", "city",
+                                              c("Amsterdam" = "Amsterdam",
+                                                "Houston" = "Houston",
+                                                "Rio de Janeiro" = "Rio de Janeiro",
+                                                "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px", 
+                                  style='padding:10px; font-size: 150%; background = "black"; font-family: "Roboto";')
+                            ),
+                            
+                            
+                            
+                            tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
+                            
+                            
+                            h1(title= "hallo", style = "font-family: 'Roboto'; color: white; font-size: 64px; text-align: center;"),
+                            
+                            
+                            
+                            
+                            
+                            
+                            box(  leafletOutput("map",height = "500"), background = "black", width = 12),
+                            
+                            
+                            
+                            # Also add some custom CSS to make the title background area the same
+                            # color as the rest of the header.
+                            
+                            tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+                            ),
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
+                                   sliderInput("Social", "Social:",
+                                               min = 0, max = 100,
+                                               value = 40))  ,
+                            
+                            column( align="center",width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px; ",
+                                    sliderInput("Ecology", "Ecology:",
+                                                min = 0, max = 100,
+                                                value = 30)) ,
+                            
+                            column( width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",align="center",
+                                    sliderInput("Economy", "Economy:",
+                                                min = 0, max = 100,
+                                                value = 30)) 
+                            
+                            
+                            
+                            ,
+                            
+                            
+                            h1("Use sliders to change importance of different score groups", 
+                               style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
+                            
+                            
+                            
+                            fluidRow( 
+                              column(1, align="center", tableOutput('values')
+                              ),
+                              column(2 ,offset = 5, align="center", tableOutput('table1')
+                              )          
+                              
+                              
+                            )))
 
 server <- function(input, output, session) {
   
