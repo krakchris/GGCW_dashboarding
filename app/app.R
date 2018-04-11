@@ -7,6 +7,9 @@ library(htmltools)
 library(feather)
 
 
+pdf(NULL)
+dev.off() 
+
 # read datafile
 df <- read_feather("Amsterdam_score.feather")
 
