@@ -96,12 +96,13 @@ mean_econ<- getScore_econ(df$Monetary)
    fluidRow( 
 
      
-     box( theme = "bootstrap.css",selectInput("City", "",
+     box(selectInput("City", "city",
                         c("Amsterdam" = "Amsterdam",
                           "Houston" = "Houston",
                           "Rio de Janeiro" = "Rio de Janeiro",
                           "Tokyo" = "Tokyo")), align="center", width = "100%", height= "100px", style='padding:10px; font-size: 150%; background = "black"; font-family: "Roboto";',
          
+         theme = "bootstrap.css",
          
          tags$style(type='text/css', "#button { vertical-align: middle; height: 50px; width: 100%; font-size: 40px;}")
      )
