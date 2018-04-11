@@ -261,36 +261,7 @@ server <- function(input, output, session) {
   ############################################
 
   
-  observeEvent(input$City,  {
-    
-    df <- data.frame(
-      Name = c("Presence of amenities", "NDVI range"
-               
-               
-               
-      ),
-      
-      Value = as.integer(c(input$Social,
-                           input$Ecology),
-                         stringsAsFactors = FALSE))
-    
-    print(input$City)
-    
-    output$table1 <- renderTable(df)
-    
-  })
-    
 
- 
-  
-
-  
-  
-
-  
-
-  
-  output$table1 <- renderTable(df)
   
   
   table_soc_score <- reactive({
@@ -326,18 +297,6 @@ server <- function(input, output, session) {
       stringsAsFactors = FALSE)
     
  )})
-  
- 
-  output$values <- renderTable(10)
-  
-  
-
-  
-  
-  
-  
-
-  
 
   
   ### end of server ###
