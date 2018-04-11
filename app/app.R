@@ -101,6 +101,7 @@ ui <- bootstrapPage(
                     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                     
                     tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
+                    
                     h1("Use sliders to change importance of different score groups", 
                        style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
                     
@@ -129,6 +130,62 @@ ui <- bootstrapPage(
                     )
 
 server <- function(input, output, session) {
+  
+  
+  
+  
+  acm_defaults <- function(map, x, y) 
+    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
+                     fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
+  
+  
+  
+  
+  points <- eventReactive(input$recalc, {
+    cbind(df$X_wgs,df$Y_wgs)
+  }, ignoreNULL = FALSE)
+  
+  
+  
+  output$map <- renderLeaflet({
+    leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
+      
+      addProviderTiles(providers$CartoDB.DarkMatter,
+                       options = providerTileOptions(noWrap = FALSE)
+      ) %>%
+      addCircleMarkers(data = points(),color = getColor(
+        
+        
+        ((input$Social/100)*mean_soc)+ ((input$Economy/100)*mean_econ) + ((input$Ecology/100)*mean_eco)
+        
+        
+      ), group="locations", layerId = df$OSM_id , stroke = FALSE, fillOpacity = 1, label = htmlEscape(df$name)) 
+  })
+  
+  
+  observeEvent(input$map_marker_click, {
+    ## Get the click info like had been doing
+    
+    
+    print(input$map_marker_click)
+    
+    p <- input$map_marker_click
+    
+    
+    proxy <- leafletProxy("map")
+    
+    if(p$id=="OSM_id"){
+      proxy %>% removeMarker(layerId="OSM_id")
+    } else {
+      proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
+    }
+    
+  })
+  
+  
+  
+  
+  
   
   
   
