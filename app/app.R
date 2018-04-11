@@ -102,15 +102,27 @@ ui <- bootstrapPage(
 
 server <- function(input, output, session) {
   
+  points <- eventReactive(input$recalc, {
+    cbind(df$X_wgs,df$Y_wgs)
+  }, ignoreNULL = FALSE)
+  
+  
+  
   
   output$map <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
       
       addProviderTiles(providers$CartoDB.DarkMatter,
-                       options = providerTileOptions(noWrap = FALSE))
-    
+                       options = providerTileOptions(noWrap = FALSE) ) %>%
+      addCircleMarkers(data = points(),color = getColor(
+        
+        
+        ((input$Social/100)*mean_soc)+ ((input$Economy/100)*mean_econ) + ((input$Ecology/100)*mean_eco)
+        
+        
+      ), group="locations", layerId = df$OSM_id , stroke = FALSE, fillOpacity = 1, label = htmlEscape(df$name)) 
+  })
   
-  
-})}
+}
 
 shinyApp(ui, server)
