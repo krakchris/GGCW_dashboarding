@@ -100,6 +100,10 @@ ui <- bootstrapPage(
                     
                     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                     
+                    tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
+                    h1("Use sliders to change importance of different score groups", 
+                       style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
+                    
                     
                     
                     column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
