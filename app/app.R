@@ -76,7 +76,7 @@ mean_eco <- rowMeans(df[,c(6,7,8,12,13,14)])
 
 mean_econ<- getScore_econ(df$Monetary)
 
-<<<<<<< HEAD
+
 
 
 
@@ -112,17 +112,15 @@ mean_econ<- getScore_econ(df$Monetary)
   
   
                     box(  leafletOutput("map",height = "500"), background = "black", width = 12),
-=======
-body <- dashboardBody(fluidRow(
-                      box(  leafletOutput("mymap",height = "500"), background = "black", width = 12)),
->>>>>>> parent of 00967bd... Add dropdown, remove zoomcontrol
+
+
   
                         # Also add some custom CSS to make the title background area the same
                         # color as the rest of the header.
                        
                         tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
                         ),
-<<<<<<< HEAD
+
   
   
   
@@ -149,7 +147,8 @@ body <- dashboardBody(fluidRow(
   ,
   
  
-  h1("Use sliders to change importance of different score groups", style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
+  h1("Use sliders to change importance of different score groups", 
+     style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
   
   
   
@@ -158,11 +157,7 @@ body <- dashboardBody(fluidRow(
     ),
     column(2 ,offset = 5, align="center", tableOutput('table1')
     )          
-=======
-                      tags$div(
-                        HTML(sprintf(html, "50% 100%", "4","string", "80% 100%", "65% 100%"))
-                      )
->>>>>>> parent of 00967bd... Add dropdown, remove zoomcontrol
+
                          
                         )))
 
@@ -184,15 +179,12 @@ server <- function(input, output, session) {
   points <- eventReactive(input$recalc, {
     cbind(df$X_wgs,df$Y_wgs)
   }, ignoreNULL = FALSE)
-<<<<<<< HEAD
+
   
   
   output$map <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
-=======
-  output$mymap <- renderLeaflet({
-    leaflet() %>%
->>>>>>> parent of 00967bd... Add dropdown, remove zoomcontrol
+
       addProviderTiles(providers$CartoDB.DarkMatter,
                        options = providerTileOptions(noWrap = FALSE)
       ) %>%
