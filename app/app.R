@@ -132,7 +132,7 @@ mean_econ<- getScore_econ(df$Monetary)
   
   
   
-  fluidRow(
+
     column(align="center", width = 4, 
   sliderInput("Social", "Social:",
               min = 0, max = 100,
@@ -150,7 +150,7 @@ mean_econ<- getScore_econ(df$Monetary)
   
   
   
-  ),
+  ,
   
  
   h1("Use sliders to change importance of different score groups", style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
