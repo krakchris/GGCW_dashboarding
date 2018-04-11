@@ -85,7 +85,7 @@ ui <- bootstrapPage(
                                       c("Amsterdam" = "Amsterdam",
                                         "Houston" = "Houston",
                                         "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo")), align="center", width = "100%"),
+                                        "Tokyo" = "Tokyo"))),
                           
                     
                     
