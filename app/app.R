@@ -80,7 +80,7 @@ mean_econ<- getScore_econ(df$Monetary)
 
 ui <- bootstrapPage(theme = "bootstrap.css",
                     
-                    box(  leafletOutput("map",height = "500"), background = "black", width = 12),
+                     leafletOutput("map",height = "500"), background = "black", width = 12,
                     
                     
                     
@@ -88,9 +88,7 @@ ui <- bootstrapPage(theme = "bootstrap.css",
                     # color as the rest of the header.
                     
                     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
-                    )
-                      
-                    )
+                    )                    )
 
 server <- function(input, output, session) {
   
