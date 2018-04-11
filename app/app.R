@@ -2,7 +2,7 @@ library(shiny)
 library(leaflet)
 library(htmltools)
 library(feather)
-library(ggmap)
+
 
 
 ######################################
@@ -192,8 +192,8 @@ server <- function(input, output, session) {
 
     proxy <- leafletProxy("map")
 
-    if(p$id=="Selected"){
-      proxy %>% removeMarker(layerId="Selected")
+    if(p$id=="OSM_id"){
+      proxy %>% removeMarker(layerId="OSM_id")
     } else {
       proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
     }
