@@ -287,7 +287,7 @@ server <- function(input, output, session) {
     
     print(input$City)
     
-    output$table1 <- renderTable(df)
+    # output$table1 <- renderTable(df)
     
   })
     
@@ -301,7 +301,7 @@ server <- function(input, output, session) {
   
 
   
-  output$table1 <- renderTable(df)
+  # output$table1 <- renderTable(df)
   
   
   table_soc_score <- reactive({
@@ -322,24 +322,24 @@ server <- function(input, output, session) {
   
   
   
-  sliderValues <- reactive({
-    
-    data.frame(
-      Name = c("Social",
-               "Ecology",
-               "Economy"
-               ),
-      
-      Value = as.integer(c(input$Social,
-                             input$Ecology,
-                             input$Economy
-                             ),
-      stringsAsFactors = FALSE)
-    
- )})
+ #  sliderValues <- reactive({
+ #    
+ #    data.frame(
+ #      Name = c("Social",
+ #               "Ecology",
+ #               "Economy"
+ #               ),
+ #      
+ #      Value = as.integer(c(input$Social,
+ #                             input$Ecology,
+ #                             input$Economy
+ #                             ),
+ #      stringsAsFactors = FALSE)
+ #    
+ # )})
   
  
-  output$values <- renderTable(10)
+
   
   
 
