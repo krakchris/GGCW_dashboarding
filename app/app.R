@@ -1,3 +1,6 @@
+
+
+
 library(shiny)
 library(leaflet)
 library(shinydashboard)
@@ -5,7 +8,7 @@ library(htmltools)
 library(feather)
 
 # read datafile
-df <- read_feather("/srv/shiny-server/GGCW/data/Amsterdam_score.feather")
+df <- read_feather("../data/Amsterdam_score.feather")
 
 
 # calculat mean scoring over all values
