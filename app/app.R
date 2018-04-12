@@ -1,10 +1,14 @@
+
+rm(list=ls())
+
+
 library(shiny)
 library(leaflet)
 library(htmltools)
 library(feather)
 
 
-
+City = "Amsterdam"
 
 # read datafile
 df <- read_feather("Amsterdam_score.feather")
@@ -62,7 +66,7 @@ getScore_econ <- function(input) {
 #########################################
 
 
-city = 'amsterdam'
+
 
 
 
@@ -291,7 +295,11 @@ server <- function(input, output, session) {
   observeEvent(input$City,  {
     
     
-    print(input$City)
+    if(p$id=="OSM_id"){
+      proxy %>% removeMarker(layerId="OSM_id")
+    } else {
+      proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
+    } 
     
     
 

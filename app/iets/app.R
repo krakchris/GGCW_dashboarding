@@ -1,5 +1,5 @@
 
-
+rm(list=ls())
 
 library(shiny)
 library(leaflet)
@@ -17,7 +17,7 @@ df$mean_score  <- rowMeans(df[,c(6,7,8,10,11,12,13,14)])
 cut_values <- seq(min(df$mean_score)+0.1, max(df$mean_score)-0.1, length.out=5)
 cut_values_econ <- seq(min(df$Monetary)+1, max(df$Monetary)-1, length.out=5)
 
-
+City = "Amsterdam"
 
 df$name <- as.factor(df$name)
 
