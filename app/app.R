@@ -160,12 +160,12 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           
                           
-                          column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
-                          ),
-                          column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
-                          ),
-                          column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
-                          )  
+                          column(1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                          )
+                          # column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                          # ),
+                          # column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                          # )  
                           
                           
                           
@@ -231,7 +231,7 @@ server <- function(input, output, session) {
       
       
       
-      output$social <- renderTable(new[isolate(p$id) == new$OSM_id,])
+      output$social <- renderTable(new[p$id == new$OSM_id,])
       
       # s_sc <- reactive(new[isolate(p$id) == new$OSM_id,])
       # 
@@ -263,8 +263,8 @@ server <- function(input, output, session) {
       
       
       
-      output$eco <- renderTable(eco)
-      output$econ <- renderTable(econ)
+      # output$eco <- renderTable(eco)
+      # output$econ <- renderTable(econ)
       
       
       
