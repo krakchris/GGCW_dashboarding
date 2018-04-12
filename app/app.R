@@ -3,7 +3,6 @@
 ############## app version
 
 
-rm(list=ls())
 
 library(shiny)
 library(leaflet)
