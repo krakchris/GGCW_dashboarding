@@ -164,7 +164,7 @@ server <- function(input, output, session) {
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
   
   
-
+  plot.new() 
   
   points <- eventReactive(input$recalc, {
     cbind(df$X_wgs,df$Y_wgs)

@@ -105,7 +105,6 @@ ui <- bootstrapPage(
                     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                     
                     tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
-                    
                     h1("Use sliders to change importance of different score groups", 
                        style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
                     
@@ -146,6 +145,7 @@ server <- function(input, output, session) {
   
   
   
+<<<<<<< HEAD
   
   acm_defaults <- function(map, x, y) 
     addCircleMarkers(map, x, y, radius=10, color="white", fillColor="black", 
@@ -199,6 +199,8 @@ server <- function(input, output, session) {
   
   
   
+=======
+>>>>>>> parent of ebc899e... added map selection
   acm_defaults <- function(map, x, y) 
     addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
