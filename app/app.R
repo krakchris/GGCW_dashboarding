@@ -24,7 +24,7 @@ df$mean_score  <- rowMeans(df[,c(6,7,8,10,11,12,13,14)])
 cut_values <- seq(min(df$mean_score)+0.1, max(df$mean_score)-0.1, length.out=5)
 cut_values_econ <- seq(min(df$Monetary)+1, max(df$Monetary)-1, length.out=5)
 
-City = "Amsterdam"
+
 
 df$name <- as.factor(df$name)
 
@@ -71,7 +71,7 @@ getScore_econ <- function(input) {
 #########################################
 
 
-city = 'amsterdam'
+
 
 
 
@@ -179,8 +179,6 @@ server <- function(input, output, session) {
   
   
   
-  
-  
   acm_defaults <- function(map, x, y) 
     addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
@@ -210,59 +208,53 @@ server <- function(input, output, session) {
   })
   
   
-  observeEvent(input$map_marker_click, {
-    ## Get the click info like had been doing
-    
-    
-    
-    
-    p <- input$map_marker_click
-    
-    s_sc <- new[p$id == new$OSM_id,]
-    
-    proxy <- leafletProxy("map")
-    
-    if(p$id=="OSM_id"){
-      proxy %>% removeMarker(layerId="OSM_id")
-    } else {
-
-            
-      
-      
-      
-      social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
-                          c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
-      
-      colnames(social) = c("Indicator", "Score")
-      
-      
-      
-      eco = data.frame(c("Riparian buffer zone","Temp_Water","Impermeable surfaces","Stormwater Capture","Leaf Area Index value"), 
-                       c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI))
-      
-      colnames(eco) = c("Indicator", "Score")
-      
-      
-      
-      econ = data.frame(c("Monetary value"), 
-                        c(s_sc$Monetary))
-      
-      colnames(econ) = c("Monetary value", "$")
-      
-      
-      
-      output$social <- renderTable(social)
-      output$eco <- renderTable(eco)
-      output$econ <- renderTable(econ)
-      
-      
-      proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
-    }
-    
-    
-    
-    
-  })
+  # observeEvent(input$map_marker_click, {
+  #   ## Get the click info like had been doing
+  #   
+  #   p <- input$map_marker_click
+  #   
+  #   s_sc <- new[p$id == new$OSM_id,]
+  #   
+  #   proxy <- leafletProxy("map")
+  #   
+  #   if(p$id=="OSM_id"){
+  #     proxy %>% removeMarker(layerId="OSM_id")
+  #   } else {
+  #     
+  #     social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
+  #                         c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
+  #     
+  #     colnames(social) = c("Indicator", "Score")
+  #     
+  #     
+  #     
+  #     eco = data.frame(c("Riparian buffer zone","Temp_Water","Impermeable surfaces","Stormwater Capture","Leaf Area Index value"), 
+  #                      c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI))
+  #     
+  #     colnames(eco) = c("Indicator", "Score")
+  #     
+  #     
+  #     
+  #     econ = data.frame(c("Monetary value"), 
+  #                       c(s_sc$Monetary))
+  #     
+  #     colnames(econ) = c("Monetary value", "$")
+  #     
+  #     
+  #     
+  #     output$social <- renderTable(social)
+  #     output$eco <- renderTable(eco)
+  #     output$econ <- renderTable(econ)
+  #     
+  #     
+  #     proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
+  #     
+  #   }
+  #   
+  #   
+  #   
+  #   
+  # })
   
   
   
