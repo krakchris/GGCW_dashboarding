@@ -85,18 +85,18 @@ mean_econ<- getScore_econ(df$Monetary)
 ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                     
                     tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
-                    tags$h1(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
-                    
+
                     
                     
                     fluidRow(
                       
                       column(12,
                              
-                               selectInput("City", "City:",c("Amsterdam" = "Amsterdam",
+                               selectInput("City", "City:",c(" " = " ", 
+                                                             "Amsterdam" = "Amsterdam",
                                                              "Houston" = "Houston",
                                                              "Rio de Janeiro" = "Rio de Janeiro",
-                                                             "Tokyo" = "Tokyo")), align = "center"
+                                                             "Tokyo" = "Tokyo")), align = "center", height = "100px", style = "height: 80px; font-family: 'Roboto'; color: white; font-size: 20px;"
                                     
                       )),
                     
@@ -119,6 +119,7 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                     
                     # Also add some custom CSS to make the title background area the same
                     # color as the rest of the header.
+                    tags$h1(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
                     
                     h1("Use sliders to change importance of different score groups", 
                        style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
@@ -280,7 +281,23 @@ server <- function(input, output, session) {
   
   ############################################
   
-  
+  observeEvent(input$City, {
+    ## Get the click info like had been doing
+    
+    p <- input$City
+    
+    print(p)
+    
+    proxy <- leafletProxy("map")
+    
+    if(p =="Amsterdam"){
+      proxy %>% setView(lng=52, lat=4, 12)
+    } else if (p =="Tokyo"){
+      proxy %>% setView(lng=4, lat=52, 12)
+      
+      }
+    
+  })
   
   
   ### end of server ###
