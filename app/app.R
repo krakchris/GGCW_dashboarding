@@ -226,33 +226,33 @@ server <- function(input, output, session) {
       proxy %>% removeMarker(layerId="OSM_id")
     } else {
       
-      s_sc <- reactive(new[isolate(p$id) == isolate(new$OSM_id),])
-      # 
-      # social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
-      #                     c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
-      # 
-      # colnames(social) = c("Indicator", "Score")
-      # 
-      # 
-      # 
-      # eco = data.frame(c("Riparian buffer zone","Temp_Water","Impermeable surfaces","Stormwater Capture","Leaf Area Index value"), 
-      #                  c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI))
-      # 
-      # colnames(eco) = c("Indicator", "Score")
-      # 
-      # 
-      # 
-      # econ = data.frame(c("Monetary"), 
-      #                   c(s_sc$Monetary))
-      # 
-      # colnames(econ) = c("Monetary", "$")
-      # 
-      # 
-      # 
-      # 
-      # output$social <- renderTable(social)
-      # output$eco <- renderTable(eco)
-      # output$econ <- renderTable(econ)
+      s_sc <- reactive(new[isolate(p$id) == new$OSM_id,])
+      
+      social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
+                          c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
+      
+      colnames(social) = c("Indicator", "Score")
+      
+      
+      
+      eco = data.frame(c("Riparian buffer zone","Temp_Water","Impermeable surfaces","Stormwater Capture","Leaf Area Index value"), 
+                       c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI))
+      
+      colnames(eco) = c("Indicator", "Score")
+      
+      
+      
+      econ = data.frame(c("Monetary"), 
+                        c(s_sc$Monetary))
+      
+      colnames(econ) = c("Monetary", "$")
+      
+  
+      
+      
+      output$social <- renderTable(social)
+      output$eco <- renderTable(eco)
+      output$econ <- renderTable(econ)
       
       
       
