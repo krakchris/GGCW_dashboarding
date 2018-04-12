@@ -2,8 +2,8 @@
 
 ############## app version
 
-rm(list=ls())
 
+rm(list=ls())
 
 library(shiny)
 library(leaflet)
@@ -16,9 +16,6 @@ plot.new()
 city_coords <- read_feather("city_coordinates.feather")
 
 df1 <- read_feather("ams_rio_tokyo_hou_score.feather")
-
-df <- df1
-
 
 # calculat mean scoring over all values
 df$mean_score  <- rowMeans(df[,c(6,7,8,10,11,12,13,14)])
@@ -157,17 +154,17 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                     ,
                     
                     
-                    fluidRow(
                     
                     
-                    column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                    
+                    column(width = 4,align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                     ),
-                    column(3 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                    column(width = 4,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                     ),
-                    column(2 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                    column(width = 4,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                     )  
                     
-                    )       
+                          
                     
                     
 )
@@ -179,6 +176,10 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
 ###############################################################################
 
 server <- function(input, output, session) {
+  
+  
+  
+  
   
   acm_defaults <- function(map, x, y) 
     addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
@@ -217,22 +218,15 @@ server <- function(input, output, session) {
     
     p <- input$map_marker_click
     
-   
+    s_sc <- new[p$id == new$OSM_id,]
     
     proxy <- leafletProxy("map")
     
     if(p$id=="OSM_id"){
       proxy %>% removeMarker(layerId="OSM_id")
     } else {
-      
-      
 
-      
-      
-      
-      
-      
-      s_sc <- new[p$id == new$OSM_id,]
+            
       
       
       
