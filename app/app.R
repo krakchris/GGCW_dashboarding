@@ -177,23 +177,7 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
 
 server <- function(input, output, session) {
   
-  getColor <- function(input) {
-    sapply(input, function(input) {
-      if(input < cut_values[1]) {
-        "#E50006"
-      } else if(input <= cut_values[2]) {
-        "#AB2F08"
-      } else if(input <= cut_values[3]) {
-        "#725F0A"
-      } else if(input <= cut_values[4]) {
-        "#398F0C"
-      } else {
-        "#00BF0F"
-      } })
-  }
-  
-  
-  
+
   acm_defaults <- function(map, x, y) 
     addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
