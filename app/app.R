@@ -81,7 +81,7 @@ mean_econ<- getScore_econ(df$Monetary)
 ui <- bootstrapPage(
                     
                     
-                    fluidRow(column(12, align="center" ,selectInput("City", "city",
+                    fluidRow(column(12, align="center" ,selectInput("City", "City",
                                       c("Amsterdam" = "Amsterdam",
                                         "Houston" = "Houston",
                                         "Rio de Janeiro" = "Rio de Janeiro",
@@ -129,13 +129,22 @@ ui <- bootstrapPage(
                     
                     )
 
+
+
+
+
+###############################################################################
+# server
+###############################################################################
+
+
 server <- function(input, output, session) {
   
   
   
   
   acm_defaults <- function(map, x, y) 
-    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
+    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="black", 
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
   
   
@@ -165,10 +174,7 @@ server <- function(input, output, session) {
   
   observeEvent(input$map_marker_click, {
     ## Get the click info like had been doing
-    
-    
-    print(input$map_marker_click)
-    
+
     p <- input$map_marker_click
     
     
@@ -201,7 +207,7 @@ server <- function(input, output, session) {
   
   
   
-  
+###########   draw map with markers    ##############################
   output$map <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
       
@@ -217,8 +223,10 @@ server <- function(input, output, session) {
   })
   
   
+############################################### 
+# distribute importance over 3 categories###
+##############################################   
   
-  # distribute importance over 3 categories###
   observeEvent(input$Ecology,  {
     
     
@@ -277,6 +285,18 @@ server <- function(input, output, session) {
   })
   
   ############################################
+  
+  
+  
+  observeEvent(input$City,  {
+    
+    
+    print(input$City)
+    
+    
+
+  })
+  
   
   
   
