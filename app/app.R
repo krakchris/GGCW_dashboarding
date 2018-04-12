@@ -82,34 +82,36 @@ mean_econ<- getScore_econ(df$Monetary)
 
 
 
-ui <- bootstrapPage(theme = "bootstrap.css",  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
+ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                     
                     tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
                     
                     
                     
+                    fluidRow(
+                      
+                      column(12,
+                             
+                               selectInput("City", "City:",c("Amsterdam" = "Amsterdam",
+                                                             "Houston" = "Houston",
+                                                             "Rio de Janeiro" = "Rio de Janeiro",
+                                                             "Tokyo" = "Tokyo")), align = "center"
+                                    
+                      )),
                     
                     
                     
+                  
                     
                     
-                    
-                    
-                    selectInput("City", "city",
-                                c("Amsterdam" = "Amsterdam",
-                                  "Houston" = "Houston",
-                                  "Rio de Janeiro" = "Rio de Janeiro",
-                                  "Tokyo" = "Tokyo")),
-                    
-                    
-                    
+                   
                     
                     
                     
                     
                     fluidRow(
                       
-                      leafletOutput("map",height = "500")
+                      leafletOutput("map",height = "300px")
                       
                     ),
                     
@@ -158,7 +160,7 @@ ui <- bootstrapPage(theme = "bootstrap.css",  tags$head(tags$link(rel = "stylesh
                     
                     
 )
-
+)
 
 
 ###############################################################################
