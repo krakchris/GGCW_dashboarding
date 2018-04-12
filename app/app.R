@@ -157,11 +157,11 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                     
                     
                     
-                    column(width = 1,align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                    column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                     ),
-                    column(width = 1,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                    column(3 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                     ),
-                    column(width = 1,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                    column(2 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                     )  
                     
                           
@@ -177,7 +177,10 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
 
 server <- function(input, output, session) {
   
-
+  
+  
+  
+  
   acm_defaults <- function(map, x, y) 
     addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
