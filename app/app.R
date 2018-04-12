@@ -161,7 +161,7 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                     
                     
                     
-                    column(1, align="center", tableOutput('values')
+                    column(1, align="center", tableOutput('table')
                     ),
                     column(2 ,offset = 5, align="center", tableOutput('table1')
                     )          
@@ -213,6 +213,9 @@ server <- function(input, output, session) {
     print(input$map_marker_click)
     
     p <- input$map_marker_click
+    
+    
+    output$table <- renderTable(new[p$id == new$OSM_id,])
     
     
     proxy <- leafletProxy("map")
@@ -486,7 +489,7 @@ server <- function(input, output, session) {
   
   
   
-  
+
   
   
   
