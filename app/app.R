@@ -213,7 +213,7 @@ server <- function(input, output, session) {
     ## Get the click info like had been doing
     
     
-    print(input$map_marker_click)
+    
     
     p <- input$map_marker_click
     
@@ -278,9 +278,6 @@ server <- function(input, output, session) {
     
     p <- input$City
     
-    
-    
-    print(p)
     
     proxy <- leafletProxy("map")
     
@@ -347,12 +344,6 @@ server <- function(input, output, session) {
     
     p <- input$City
     
-    
-    
-    print(p)
-    
-    
-    
     if(p =="Rio de Janeiro"){
       
       x = city_coords$Rio[1]
@@ -415,9 +406,6 @@ server <- function(input, output, session) {
     
     p <- input$City
     
-    
-    
-    print(p)
     
     
     
@@ -486,7 +474,7 @@ server <- function(input, output, session) {
     
  
     
-    print(p)
+  
     
     proxy <- leafletProxy("map")
     
