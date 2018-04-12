@@ -13,7 +13,11 @@ library(feather)
 plot.new()
 
 # read datafile
-df <- read_feather("Amsterdam_score.feather")
+city_coords <- read_feather("city_coordinates.feather")
+
+df1 <- read_feather("ams_rio_score.feather")
+
+df <- df1
 
 
 # calculat mean scoring over all values
@@ -26,6 +30,8 @@ cut_values_econ <- seq(min(df$Monetary)+1, max(df$Monetary)-1, length.out=5)
 City = "Amsterdam"
 
 df$name <- as.factor(df$name)
+
+df <- df1
 
 ######################################
 # handy functions
@@ -225,6 +231,55 @@ server <- function(input, output, session) {
   observeEvent(input$Ecology,  {
     
     
+    p <- input$City
+    
+    
+    
+    print(p)
+    
+    proxy <- leafletProxy("map")
+    
+    if(p =="Rio de Janeiro"){
+      
+      x = city_coords$Rio[1]
+      
+      y = city_coords$Rio[2]
+      
+      proxy %>% setView(lat=y, lng=x,10)
+      
+      
+    } else if (p =="Amsterdam"){
+      
+      x = city_coords$Amsterdam[1]
+      
+      y = city_coords$Amsterdam[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+    } else if (p =="Houston"){
+      
+      x = city_coords$Houston[1]
+      
+      y = city_coords$Houston[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10) 
+      
+    } else if (p =="Tokyo"){
+      
+      x = city_coords$Tokyo[1]
+      
+      y = city_coords$Tokyo[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+      
+      
+    }
+    
+    
+    proxy <- leafletProxy("map")
+    
+    
     eco_val <- input$Ecology
     
     econ_val <- input$Economy
@@ -241,6 +296,55 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$Social,  {
+    
+    
+    proxy <- leafletProxy("map")
+    
+    p <- input$City
+    
+    
+    
+    print(p)
+    
+    
+    
+    if(p =="Rio de Janeiro"){
+      
+      x = city_coords$Rio[1]
+      
+      y = city_coords$Rio[2]
+      
+      proxy %>% setView(lat=y, lng=x, 10)
+      
+      
+    } else if (p =="Amsterdam"){
+      
+      x = city_coords$Amsterdam[1]
+      
+      y = city_coords$Amsterdam[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+    } else if (p =="Houston"){
+      
+      x = city_coords$Houston[1]
+      
+      y = city_coords$Houston[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10) 
+      
+    } else if (p =="Tokyo"){
+      
+      x = city_coords$Tokyo[1]
+      
+      y = city_coords$Tokyo[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+      
+      
+    }
+    
     
     
     eco_val <- input$Ecology
@@ -260,6 +364,55 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$Economy,  {
+    
+    
+    proxy <- leafletProxy("map")
+    
+    p <- input$City
+    
+    
+    
+    print(p)
+    
+    
+    
+    if(p =="Rio de Janeiro"){
+      
+      x = city_coords$Rio[1]
+      
+      y = city_coords$Rio[2]
+      
+      proxy %>% setView(lat=y, lng=x, 10)
+      
+      
+    } else if (p =="Amsterdam"){
+      
+      x = city_coords$Amsterdam[1]
+      
+      y = city_coords$Amsterdam[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+    } else if (p =="Houston"){
+      
+      x = city_coords$Houston[1]
+      
+      y = city_coords$Houston[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10) 
+      
+    } else if (p =="Tokyo"){
+      
+      x = city_coords$Tokyo[1]
+      
+      y = city_coords$Tokyo[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+      
+      
+    }
+    
     
     
     eco_val <- input$Ecology
@@ -286,18 +439,56 @@ server <- function(input, output, session) {
     
     p <- input$City
     
+ 
+    
     print(p)
     
     proxy <- leafletProxy("map")
     
-    if(p =="Amsterdam"){
-      proxy %>% setView(lng=52, lat=4, 12)
+    if(p =="Rio de Janeiro"){
+      
+      x = city_coords$Rio[1]
+      
+      y = city_coords$Rio[2]
+      
+      proxy %>% setView(lat=y, lng=x, 10)
+      
+
+    } else if (p =="Amsterdam"){
+      
+      x = city_coords$Amsterdam[1]
+      
+      y = city_coords$Amsterdam[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+    } else if (p =="Houston"){
+      
+      x = city_coords$Houston[1]
+      
+      y = city_coords$Houston[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10) 
+      
     } else if (p =="Tokyo"){
-      proxy %>% setView(lng=4, lat=52, 12)
+      
+      x = city_coords$Tokyo[1]
+      
+      y = city_coords$Tokyo[2]
+      
+      proxy %>% setView(lng=y, lat=x, 10)
+      
+      
       
       }
     
   })
+  
+  
+  
+  
+  
+  
   
   
   ### end of server ###
