@@ -213,9 +213,9 @@ server <- function(input, output, session) {
   observeEvent(input$map_marker_click, {
     ## Get the click info like had been doing
     
-    p <- input$map_marker_click
+    p <- isolate(input$map_marker_click)
     
-    s_sc <- new[p$id == new$OSM_id,]
+    s_sc <- new[isolate(p$id) == new$OSM_id,]
     
     proxy <- leafletProxy("map")
     
