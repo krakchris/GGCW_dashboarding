@@ -1,14 +1,15 @@
 
-rm(list=ls())
 
+############## app version
+
+rm(list=ls())
 
 library(shiny)
 library(leaflet)
 library(htmltools)
 library(feather)
 
-
-City = "Amsterdam"
+plot.new()
 
 # read datafile
 df <- read_feather("Amsterdam_score.feather")
@@ -21,7 +22,7 @@ df$mean_score  <- rowMeans(df[,c(6,7,8,10,11,12,13,14)])
 cut_values <- seq(min(df$mean_score)+0.1, max(df$mean_score)-0.1, length.out=5)
 cut_values_econ <- seq(min(df$Monetary)+1, max(df$Monetary)-1, length.out=5)
 
-
+City = "Amsterdam"
 
 df$name <- as.factor(df$name)
 
@@ -66,7 +67,7 @@ getScore_econ <- function(input) {
 #########################################
 
 
-
+city = 'amsterdam'
 
 
 
@@ -80,37 +81,49 @@ mean_econ<- getScore_econ(df$Monetary)
 
 
 
-
-
-ui <- bootstrapPage(
+ui <- bootstrapPage(theme = "bootstrap.css",  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                     
-                    
-<<<<<<< HEAD
-                    fluidRow(column(12, align="center" ,selectInput("City", "City",
-=======
-                    box(selectInput("City", "city",
->>>>>>> parent of cf6a4c6... center dropdown menu
-                                      c("Amsterdam" = "Amsterdam",
-                                        "Houston" = "Houston",
-                                        "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo"))),
-                          
+                    tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
                     
                     
                     
-                     leafletOutput("map",height = "500"), 
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    selectInput("City", "city",
+                                c("Amsterdam" = "Amsterdam",
+                                  "Houston" = "Houston",
+                                  "Rio de Janeiro" = "Rio de Janeiro",
+                                  "Tokyo" = "Tokyo")),
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    fluidRow(
+                      
+                      leafletOutput("map",height = "500")
+                      
+                    ),
                     
                     
                     # Also add some custom CSS to make the title background area the same
                     # color as the rest of the header.
                     
-                    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
-                    
-                    tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
                     h1("Use sliders to change importance of different score groups", 
                        style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -131,12 +144,19 @@ ui <- bootstrapPage(
                     
                     
                     
+                    ,
                     
                     
                     
-                    )
-
-
+                    
+                    
+                    column(1, align="center", tableOutput('values')
+                    ),
+                    column(2 ,offset = 5, align="center", tableOutput('table1')
+                    )          
+                    
+                    
+)
 
 
 
@@ -144,19 +164,14 @@ ui <- bootstrapPage(
 # server
 ###############################################################################
 
-
 server <- function(input, output, session) {
   
-  
-  
-<<<<<<< HEAD
-  
   acm_defaults <- function(map, x, y) 
-    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="black", 
+    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
                      fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
   
   
-  
+  plot.new() 
   
   points <- eventReactive(input$recalc, {
     cbind(df$X_wgs,df$Y_wgs)
@@ -182,7 +197,10 @@ server <- function(input, output, session) {
   
   observeEvent(input$map_marker_click, {
     ## Get the click info like had been doing
-
+    
+    
+    print(input$map_marker_click)
+    
     p <- input$map_marker_click
     
     
@@ -198,45 +216,7 @@ server <- function(input, output, session) {
   
   
   
-  
-  
-  
-  
-  
-=======
->>>>>>> parent of ebc899e... added map selection
-  acm_defaults <- function(map, x, y) 
-    addCircleMarkers(map, x, y, radius=10, color="white", fillColor="orange", 
-                     fillOpacity=0, opacity=1, weight=2, stroke=TRUE, layerId="OSM_id")
-  
-  
-  
-  points <- eventReactive(input$recalc, {
-    cbind(df$X_wgs,df$Y_wgs)
-  }, ignoreNULL = FALSE)
-  
-  
-  
-###########   draw map with markers    ##############################
-  output$map <- renderLeaflet({
-    leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
-      
-      addProviderTiles(providers$CartoDB.DarkMatter,
-                       options = providerTileOptions(noWrap = FALSE) ) %>%
-      addCircleMarkers(data = points(),color = getColor(
-        
-        
-        ((input$Social/100)*mean_soc)+ ((input$Economy/100)*mean_econ) + ((input$Ecology/100)*mean_eco)
-        
-        
-      ), group="locations", layerId = df$OSM_id , stroke = FALSE, fillOpacity = 1, label = htmlEscape(df$name)) 
-  })
-  
-  
-############################################### 
-# distribute importance over 3 categories###
-##############################################   
-  
+  # distribute importance over 3 categories###
   observeEvent(input$Ecology,  {
     
     
@@ -298,22 +278,14 @@ server <- function(input, output, session) {
   
   
   
-  observeEvent(input$City,  {
-    
-    
-    if(p$id=="OSM_id"){
-      proxy %>% removeMarker(layerId="OSM_id")
-    } else {
-      proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
-    } 
-    
-    
-
-  })
   
-  
-  
-  
+  ### end of server ###
 }
 
+
+
 shinyApp(ui, server)
+
+
+
+
