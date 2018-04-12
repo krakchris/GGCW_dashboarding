@@ -12,8 +12,6 @@ library(feather)
 
 
 
-plot.new()
-
 # read datafile
 city_coords <- read_feather("city_coordinates.feather")
 
