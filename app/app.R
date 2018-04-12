@@ -10,7 +10,8 @@ library(leaflet)
 library(htmltools)
 library(feather)
 
-plot.new()
+
+social <- data.frame()
 
 # read datafile
 city_coords <- read_feather("city_coordinates.feather")
@@ -213,15 +214,18 @@ server <- function(input, output, session) {
   observeEvent(input$map_marker_click, {
     ## Get the click info like had been doing
     
-    p <- isolate(input$map_marker_click)
+    p <- (input$map_marker_click)
     
-    s_sc <- new[isolate(p$id) == new$OSM_id,]
+    s_sc <- cbind(new[isolate(p$id) == new$OSM_id,])
     
     proxy <- leafletProxy("map")
+    
+  
     
     if(p$id=="OSM_id"){
       proxy %>% removeMarker(layerId="OSM_id")
     } else {
+      
       
       social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
                           c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
@@ -242,11 +246,13 @@ server <- function(input, output, session) {
       
       colnames(econ) = c("Monetary", "$")
       
+      print(new[isolate(p$id) == new$OSM_id,]$city)
       
       
       output$social <- renderTable(social)
       output$eco <- renderTable(eco)
       output$econ <- renderTable(econ)
+      
       
       
       proxy %>% setView(lng=p$lng, lat=p$lat, 12) %>% acm_defaults(p$lng, p$lat)
