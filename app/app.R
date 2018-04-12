@@ -226,7 +226,7 @@ server <- function(input, output, session) {
       proxy %>% removeMarker(layerId="OSM_id")
     } else {
       
-      s_sc <- cbind(new[isolate(p$id) == new$OSM_id,])
+      s_sc <- new[isolate(p$id) == isolate(new$OSM_id),]
       # 
       # social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
       #                     c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
