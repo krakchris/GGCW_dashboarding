@@ -26,9 +26,9 @@ cut_values_econ <- seq(min(df$Monetary)+1, max(df$Monetary)-1, length.out=5)
 
 
 
-df$name <- as.factor(df$name)
 
-df <- df1
+
+
 
 ## Only run this example in interactive R sessions
   # table example
