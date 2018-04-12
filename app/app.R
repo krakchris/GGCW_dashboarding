@@ -85,11 +85,15 @@ mean_econ<- getScore_econ(df$Monetary)
 ui <- bootstrapPage(
                     
                     
+<<<<<<< HEAD
                     fluidRow(column(12, align="center" ,selectInput("City", "City",
+=======
+                    box(selectInput("City", "city",
+>>>>>>> parent of cf6a4c6... center dropdown menu
                                       c("Amsterdam" = "Amsterdam",
                                         "Houston" = "Houston",
                                         "Rio de Janeiro" = "Rio de Janeiro",
-                                        "Tokyo" = "Tokyo"))  ) ),
+                                        "Tokyo" = "Tokyo"))),
                           
                     
                     
