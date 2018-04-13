@@ -132,7 +132,7 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           
                           
-                          
+                          fluidRow(
                           
                           
                           
@@ -151,23 +151,51 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                                   sliderInput("Economy", "Economy:",
                                               min = 0, max = 100,
                                               value = 30)) 
-                          
+                          )
                           
                           
                           ,
                           
+                          fluidRow(
+                          
+                          uiOutput("Park_name",align="center",style = "font-family: 'Roboto'; color: white; font-size: 11px;  "),
+                          
+                          fluidRow(
+                          
+                          column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
+                                 
+                                 uiOutput("mean_soc",align="center",style = "font-family: 'Roboto'; color: #7561d8; font-size: 20px; padding:10px; ")
+                                 
+                          ),
+                          
+                          column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
+                                 
+                                 uiOutput("mean_eco",align="center",style = "font-family: 'Roboto'; color: green; font-size: 20px;  padding:10px;")
+                                 
+                          ),
+                          
+                          column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
+                                 
+                                 uiOutput("mean_econ",align="center",style = "font-family: 'Roboto'; color: yellow; font-size: 20px; padding:10px; ")
+                                 
+                          )
                           
                           
-                          uiOutput("Park_name",style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"),
+                          )
+                          
+                          ),fluidRow(),
+                          
                           
                           
                           fluidRow(
-                          column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
+                            
+                          column(4, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  "
                           ),
-                          column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
+                          column(4 , align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  "
                           ),
-                          column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
-                          ))
+                          column(4 , align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 12px;  "
+                          )
+)
                           
                
                           
@@ -240,6 +268,8 @@ server <- function(input, output, session) {
       
       
       
+      
+      
       social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
                           c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
       
@@ -258,8 +288,12 @@ server <- function(input, output, session) {
                         c(s_sc$Monetary))
       
       colnames(econ) = c("Monetary Indicator", "$")
-      
+
   
+      output$mean_soc <- renderText(paste("Social mean score:",  as.character(round(mean(social[,2]),2))))
+      output$mean_eco <- renderText(paste("Eco mean score:",  as.character(round(mean(eco[,2]),2))))
+      output$mean_econ <- renderText(paste("Monetary value:",  as.character(mean(econ[,2])), " $"))
+      
       
       
       output$social <- renderTable(social)
