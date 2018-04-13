@@ -16,7 +16,7 @@ city_coords <- read_feather("city_coordinates.feather")
 
 df1 <- read_feather("ams_rio_tokyo_hou_score.feather")
 
-
+df1 <- df1[!duplicated(df1), ]
 
 df <- df1
 
