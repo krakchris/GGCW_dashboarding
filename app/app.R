@@ -16,6 +16,8 @@ city_coords <- read_feather("city_coordinates.feather")
 
 df1 <- read_feather("ams_rio_tokyo_hou_score.feather")
 
+
+
 df <- df1
 
 # calculat mean scoring over all values
@@ -158,12 +160,18 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           uiOutput("Park_name",style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"),
                           
+                          
+                          fluidRow(
                           column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
                           ),
                           column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
                           ),
                           column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
-                          )
+                          ),
+                          column(9, offset = 2,
+                          
+               
+                          
                           
 
                           
