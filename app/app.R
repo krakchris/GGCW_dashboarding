@@ -167,8 +167,7 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
                           ),
                           column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
-                          ),
-                          column(9, offset = 2,
+                          ))
                           
                
                           
@@ -244,14 +243,14 @@ server <- function(input, output, session) {
       social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
                           c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
       
-      colnames(social) = c("Social Indicator", "Score")
+      colnames(social) = c("Social Indicators", "Score")
       
       
       
       eco = data.frame(c("Riparian buffer zone","Temp_Water","Impermeable surfaces","Stormwater Capture","Leaf Area Index value"), 
                        c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI))
       
-      colnames(eco) = c("Ecological Indicator", "Score")
+      colnames(eco) = c("Ecological Indicators", "Score")
       
       
       
