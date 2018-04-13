@@ -2,13 +2,11 @@
 
 ############## app version
 
-
-rm(list=ls())
-
+library("htmltools")
 library(shiny)
 library(leaflet)
-library(htmltools)
 library(feather)
+library(shinydashboard)
 
 
 social <- data.frame()
@@ -101,7 +99,8 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                                                                  "Amsterdam" = "Amsterdam",
                                                                  "Houston" = "Houston",
                                                                  "Rio de Janeiro" = "Rio de Janeiro",
-                                                                 "Tokyo" = "Tokyo")), align = "center", height = "100px", style = "height: 80px; font-family: 'Roboto'; color: white; font-size: 20px;"
+                                                                 "Tokyo" = "Tokyo")), align = "center", height = "100px", 
+                                   style = "height: 80px; font-family: 'Roboto'; color: white; font-size: 20px;"
                                    
                             )),
                           
@@ -117,15 +116,14 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           fluidRow(
                             
-                            leafletOutput("map",height = "300px")
+                            leafletOutput("map",height = "400px")
                             
                           ),
                           
                           
                           # Also add some custom CSS to make the title background area the same
                           # color as the rest of the header.
-                          tags$h1(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
-                          
+
                           h1("Use sliders to change importance of different score groups", 
                              style = "font-family: 'Roboto'; color: white; font-size: 20px; text-align: center;"),
                           
@@ -160,13 +158,14 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           uiOutput("Park_name",style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"),
                           
-                          column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                          column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
                           ),
-                          column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
+                          column(1 ,offset = 1, align="center", tableOutput('social'), style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
                           ),
-                          column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
-                          )  
+                          column(1 ,offset = 1, align="center", tableOutput('econ'),style = "font-family: 'Roboto'; color: white; font-size: 12px;  ",align="center"
+                          )
                           
+
                           
                           
                           
