@@ -76,7 +76,7 @@ getScore_econ <- function(input) {
 
 
 
-
+Park_name <- "Click on park for more info"
 
 mean_soc <- rowMeans(df[,c(10,11)])
 
@@ -158,7 +158,7 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           
                           
-                          
+                          uiOutput("Park_name",style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"),
                           
                           column(1, align="center", tableOutput('eco'), style = "font-family: 'Roboto'; color: white; font-size: 11px;  ",align="center"
                           ),
@@ -228,6 +228,12 @@ server <- function(input, output, session) {
       
       s_sc <- df[isolate(p$id) == df$OSM_id,]
       
+      output$Park_name <- renderUI({
+        list(tags$h3(s_sc$name))
+      }) 
+      
+      
+      
       social = data.frame(c("Amenities","Gray vs Green ","Greenness in winter"), 
                           c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
       
@@ -242,10 +248,10 @@ server <- function(input, output, session) {
       
       
       
-      econ = data.frame(c("Monetary Indicator"), 
+      econ = data.frame(c("Monetary"), 
                         c(s_sc$Monetary))
       
-      colnames(econ) = c("Monetary", "$")
+      colnames(econ) = c("Monetary Indicator", "$")
       
   
       
