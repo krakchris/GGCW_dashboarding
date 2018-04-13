@@ -143,17 +143,17 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           column(align="center", width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;",
                                  sliderInput("Social", "Social:",
-                                             min = 0, max = 100,
+                                             min = 0, max = 100,step= 10,
                                              value = 40))  ,
                           
                           column( align="center",width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px; ",
                                   sliderInput("Ecology", "Ecology:",
-                                              min = 0, max = 100,
+                                              min = 0, max = 100,step= 10,
                                               value = 30)) ,
                           
                           column( width = 4, style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",align="center",
                                   sliderInput("Economy", "Economy:",
-                                              min = 0, max = 100,
+                                              min = 0, max = 100,step= 10,
                                               value = 30)) 
                           )
                           
