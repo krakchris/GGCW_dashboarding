@@ -158,25 +158,26 @@ ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/c
                           
                           fluidRow(
                           
-                          uiOutput("Park_name",align="center",style = "font-family: 'Roboto'; color: white; font-size: 11px;  "),
+                          uiOutput("Park_name",align="center",style = "font-family: 'Roboto'; color: white; font-size: 11px; padding:10px; "),
                           
                           fluidRow(
                           
                           column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
-                                 
-                                 uiOutput("mean_soc",align="center",style = "font-family: 'Roboto'; color: #7561d8; font-size: 20px; padding:10px; ")
-                                 
-                          ),
-                          
-                          column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
-                                 
-                                 uiOutput("mean_eco",align="center",style = "font-family: 'Roboto'; color: green; font-size: 20px;  padding:10px;")
+                                 icon('users',  "fa-3x"),
+                                 uiOutput("mean_soc",align="center",style = "font-family: 'Roboto'; color: white; font-size: 20px; padding:10px; ")
                                  
                           ),
                           
                           column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
                                  
-                                 uiOutput("mean_econ",align="center",style = "font-family: 'Roboto'; color: yellow; font-size: 20px; padding:10px; ")
+                                 icon('envira',  "fa-3x"),
+                                 uiOutput("mean_eco",align="center",style = "font-family: 'Roboto'; color: white; font-size: 20px;  padding:10px;")
+                                 
+                          ),
+                          
+                          column(4,align="center", style = "font-family: 'Roboto'; color: white; font-size: 20px;  ",
+                                 icon('briefcase',  "fa-3x"),
+                                 uiOutput("mean_econ",align="center",style = "font-family: 'Roboto'; color: white; font-size: 20px; padding:10px; ")
                                  
                           )
                           
