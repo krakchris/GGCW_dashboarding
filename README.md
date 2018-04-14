@@ -1,5 +1,7 @@
 # GGCW dashboarding
 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/krakchris/GGCW_dashboarding/blob/master/LICENSE)
+
 Creating a dashboard for the Glabal Green City Watch project as seen on www.globalgreencitywatch.org.
 
 Using shiny-server and Rstudio the web application can be run on a digitalocean ubuntu droplet.
