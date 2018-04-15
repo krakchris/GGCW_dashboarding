@@ -1,6 +1,6 @@
 # GGCW dashboarding
 
-[![license](https://img.shields.io/badge/Licence-GPL 3.0-green.svg)](https://github.com/krakchris/GGCW_dashboarding/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/Licence-GPL%203.0-green.svg)](https://github.com/krakchris/GGCW_dashboarding/blob/master/LICENSE)
 
 Creating a dashboard for the Glabal Green City Watch project as seen on www.globalgreencitywatch.org.
 
