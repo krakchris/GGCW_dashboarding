@@ -1,3 +1,7 @@
+![alt text][header]
+
+[header]: https://github.com/krakchris/GGCW_GBDX_tools/blob/master/header.PNG "header"
+
 # GGCW dashboarding
 
 [![license](https://img.shields.io/badge/Licence-GPL%203.0-green.svg)](https://github.com/krakchris/GGCW_dashboarding/blob/master/LICENSE)
