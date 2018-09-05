@@ -274,30 +274,32 @@ server <- function(input, output, session) {
       
       
       
+      social_score <- c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter)
       
       social = data.frame(c("Amenities and recreational facillities ","Gray vs Green ","Greenness in winter"), 
-                          c(s_sc$Soc_Amen,s_sc$Soc_Grey,s_sc$Soc_Winter))
+                          format(round(x = social_score,digits = 0), nsmall = 0))
       
       colnames(social) = c("Social Indicators", "Score")
       
-      
+      eco_score <- c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI)
       
       eco = data.frame(c("Green within a riparian zone","Width of blue space in a park","Impermeable surfaces","Stormwater Capture","Leaf Area Index"), 
-                       c(s_sc$Infil_Rip,s_sc$Temp_Water,s_sc$Infil_Inper,s_sc$Infil_Storm,s_sc$Temp_LAI))
+                       format(round(x = eco_score,digits = 0), nsmall = 0))
       
       colnames(eco) = c("Ecological Indicators", "Score")
       
       
+      econ_val <- c(s_sc$Monetary)
       
       econ = data.frame(c("Economic value of ecosystem services"), 
-                        c(s_sc$Monetary))
+                        format(round(x = econ_val,digits = 0), nsmall = 0))
       
       colnames(econ) = c("Economic indicator ", "$")
 
   
-      output$mean_soc <- renderText(paste("Social mean score:",  as.character(round(mean(social[,2]),2))))
-      output$mean_eco <- renderText(paste("Eco mean score:",  as.character(round(mean(eco[,2]),2))))
-      output$mean_econ <- renderText(paste("Monetary value:",  as.character(mean(econ[,2])), " $"))
+      output$mean_soc <- renderText(paste("Social mean score:",  as.character(round(mean(social_score),2))))
+      output$mean_eco <- renderText(paste("Eco mean score:",  as.character(round(mean(eco_score),2))))
+      output$mean_econ <- renderText(paste("Monetary value:",  as.character(mean(econ_val)), " $"))
       
       
       
@@ -367,20 +369,7 @@ server <- function(input, output, session) {
     
     proxy <- leafletProxy("map")
     
-    
-    eco_val <- input$Ecology
-    
-    econ_val <- input$Economy
-    
-    soc_val <- input$Social
-    
-    current_rest = soc_val+econ_val
-    
-    change <- (((current_rest + eco_val)-100)*-1)/2
-    
-    updateSliderInput(session = session, inputId = "Social", value = soc_val+change)
-    
-    updateSliderInput(session = session, inputId = "Economy", value = econ_val+change)
+
   })
   
   observeEvent(input$Social,  {
@@ -426,23 +415,10 @@ server <- function(input, output, session) {
       
       
     }
+  
     
     
-    
-    eco_val <- input$Ecology
-    
-    econ_val <- input$Economy
-    
-    soc_val <- input$Social
-    
-    
-    current_rest = soc_val+econ_val
-    
-    change <- (((current_rest + eco_val)-100)*-1)/2
-    
-    updateSliderInput(session = session, inputId = "Ecology", value = eco_val+change)
-    
-    updateSliderInput(session = session, inputId = "Economy", value = econ_val+change)
+ 
   })
   
   observeEvent(input$Economy,  {
@@ -493,21 +469,6 @@ server <- function(input, output, session) {
     }
     
     
-    
-    eco_val <- input$Ecology
-    
-    econ_val <- input$Economy
-    
-    soc_val <- input$Social
-    
-    
-    current_rest = soc_val+econ_val
-    
-    change <- (((current_rest + eco_val)-100)*-1)/2
-    
-    updateSliderInput(session = session, inputId = "Social", value = soc_val+change)
-    
-    updateSliderInput(session = session, inputId = "Ecology", value = eco_val+change)
     
   })
   
