@@ -93,7 +93,7 @@ mean_econ<- getScore_econ(df$Monetary)
 
 ui <- shinyUI(fluidPage(  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "style.css")) ,
                           
-                          tags$head(HTML("<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
+                          tags$head(HTML("<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type = 'text/css'>")),
                           
                           
                           
